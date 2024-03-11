@@ -249,7 +249,7 @@
           <ownedFunctions xsi:type="org.polarsys.capella.core.data.oa:OperationalActivity"
               id="d46ac87a-b688-4c48-8af1-13b730374185" name="Provide ID Information"/>
           <ownedFunctions xsi:type="org.polarsys.capella.core.data.oa:OperationalActivity"
-              id="6d39206e-30f2-4564-9fa3-9418aede8db5" name="Athlete Executes Plays"/>
+              id="6d39206e-30f2-4564-9fa3-9418aede8db5" name="Athlete Particpates in Activity"/>
           <ownedFunctions xsi:type="org.polarsys.capella.core.data.oa:OperationalActivity"
               id="b2d9885a-0f6f-4a92-a901-3081c5f630ef" name="Device"/>
           <ownedFunctions xsi:type="org.polarsys.capella.core.data.oa:OperationalActivity"
@@ -274,6 +274,12 @@
               id="e22d3eaf-eefa-401d-abdb-64255b364b70" name="Established Concussion Policy"/>
           <ownedFunctions xsi:type="org.polarsys.capella.core.data.oa:OperationalActivity"
               id="16dec77c-04b6-4a88-82fc-f0a9923a1f44" name="Generates Reports"/>
+          <ownedFunctions xsi:type="org.polarsys.capella.core.data.oa:OperationalActivity"
+              id="a91ac496-6375-4764-a73e-2c6069bdf77d" name="Helmut Receives a Hit"/>
+          <ownedFunctions xsi:type="org.polarsys.capella.core.data.oa:OperationalActivity"
+              id="82dff05a-5340-49ce-965a-fa8c592e912e" name="Device records Hit"/>
+          <ownedFunctions xsi:type="org.polarsys.capella.core.data.oa:OperationalActivity"
+              id="051e9982-3689-4ba8-8505-2b91062dc9e4" name="Device alerts possible Concussion"/>
           <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
               id="cc920cd2-9f5a-4453-b358-341dcd2a252b" name="System" target="#270cf327-d28a-43c8-bcfc-6d76f5bfd332"
               source="#861aea45-950e-4270-9063-157bee06ce98"/>
@@ -367,6 +373,21 @@
           <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
               id="2602a7eb-68a7-4566-be78-8113dee1b9f4" name="Evaluation" target="#839e21c6-b5f8-48a1-ad48-a83faf460254"
               source="#15d135a4-0f8b-4abf-82dd-2ad1a1784b64"/>
+          <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
+              id="e71caa94-b428-41fe-93e0-c3c148b57ac5" name="Concussion Alert" target="#3abfdb59-a609-4c38-a6f5-344e5777f238"
+              source="#051e9982-3689-4ba8-8505-2b91062dc9e4"/>
+          <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
+              id="ff3820bc-b497-437f-95f4-f2737ea67797" name="Activity" target="#a91ac496-6375-4764-a73e-2c6069bdf77d"
+              source="#6d39206e-30f2-4564-9fa3-9418aede8db5"/>
+          <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
+              id="e83dae9c-5680-42cd-9de3-1549042b2cbb" name="Hit" target="#82dff05a-5340-49ce-965a-fa8c592e912e"
+              source="#a91ac496-6375-4764-a73e-2c6069bdf77d"/>
+          <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
+              id="e34f782f-a339-4564-b4b3-b0ca33af8177" name="Concussion" target="#051e9982-3689-4ba8-8505-2b91062dc9e4"
+              source="#82dff05a-5340-49ce-965a-fa8c592e912e"/>
+          <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
+              id="662fa0ed-403d-4a48-8994-cd28e044b832" name="Stored Data" target="#839e21c6-b5f8-48a1-ad48-a83faf460254"
+              source="#82dff05a-5340-49ce-965a-fa8c592e912e"/>
         </ownedOperationalActivities>
       </ownedFunctionPkg>
       <ownedAbstractCapabilityPkg xsi:type="org.polarsys.capella.core.data.oa:OperationalCapabilityPkg"
@@ -565,6 +586,9 @@
           <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
               id="4b1dc8bd-860a-4eb7-99a4-236dd613517a" targetElement="#df55ebc4-c4c1-4fff-8c10-b1d0ae4cd40b"
               sourceElement="#1c68d929-b187-44dd-9d46-692a26d61f5b"/>
+          <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
+              id="ec3d506e-2f3c-4c86-8fb7-fb03b17b4b62" targetElement="#a91ac496-6375-4764-a73e-2c6069bdf77d"
+              sourceElement="#1c68d929-b187-44dd-9d46-692a26d61f5b"/>
         </ownedEntities>
         <ownedEntities xsi:type="org.polarsys.capella.core.data.oa:Entity" id="4b6faa5d-4abf-4992-b353-9ce31f94c203"
             name="Sensing Device">
@@ -582,6 +606,12 @@
               sourceElement="#4b6faa5d-4abf-4992-b353-9ce31f94c203"/>
           <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
               id="c36b7f88-e6a2-4d0e-8a61-947c45985c40" targetElement="#839e21c6-b5f8-48a1-ad48-a83faf460254"
+              sourceElement="#4b6faa5d-4abf-4992-b353-9ce31f94c203"/>
+          <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
+              id="632e2e2b-8885-4914-9a3f-ed802b0bb139" targetElement="#82dff05a-5340-49ce-965a-fa8c592e912e"
+              sourceElement="#4b6faa5d-4abf-4992-b353-9ce31f94c203"/>
+          <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
+              id="274d71ed-1b76-4bf3-bd6b-fb068fb65b04" targetElement="#051e9982-3689-4ba8-8505-2b91062dc9e4"
               sourceElement="#4b6faa5d-4abf-4992-b353-9ce31f94c203"/>
         </ownedEntities>
       </ownedEntityPkg>
