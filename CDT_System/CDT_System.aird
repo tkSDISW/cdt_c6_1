@@ -8,35 +8,35 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_hZfkANILEey998MgR9V3OA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/oa.odesign#//@ownedViewpoints[name='Operational%20Analysis']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_PmdKYNakEeyVd-CR1SC4AA" name="Act 1 - [OCB] Operational Capabilities" repPath="#_PmK2gNakEeyVd-CR1SC4AA" changeId="1710202476023">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_PmdKYNakEeyVd-CR1SC4AA" name="Act 1 - [OCB] Operational Capabilities" repPath="#_PmK2gNakEeyVd-CR1SC4AA" changeId="1710202617895">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/oa.odesign#//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Capabilities%20Blank']"/>
         <target xmi:type="org.polarsys.capella.core.data.oa:OperationalCapabilityPkg" href="CDT_System.capella#60d7b275-f125-4171-a64a-2024824c37d8"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_7NP-INa6EeyVd-CR1SC4AA" name="[OAB] Acquire and Maintain" repPath="#_7NOwANa6EeyVd-CR1SC4AA" changeId="1710202476023">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_7NP-INa6EeyVd-CR1SC4AA" name="[OAB] Acquire and Maintain" repPath="#_7NOwANa6EeyVd-CR1SC4AA" changeId="1710202617895">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/oa.odesign#//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Blank']"/>
         <target xmi:type="org.polarsys.capella.core.data.oa:EntityPkg" href="CDT_System.capella#a601bc89-b500-494a-a9a5-6cb78ab285a1"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_D0RzcNa9EeyVd-CR1SC4AA" name="[OPD] Acquire Device" repPath="#_D0QlUNa9EeyVd-CR1SC4AA" changeId="1710202476023">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_D0RzcNa9EeyVd-CR1SC4AA" name="[OPD] Acquire Device" repPath="#_D0QlUNa9EeyVd-CR1SC4AA" changeId="1710202617895">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/oa.odesign#//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Process%20Description']"/>
         <target xmi:type="org.polarsys.capella.core.data.oa:OperationalProcess" href="CDT_System.capella#79b50fe0-71c1-4524-96d5-8a28c57db263"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_QIwAUNa-EeyVd-CR1SC4AA" name="[OAB] Activate" repPath="#_QIuyMNa-EeyVd-CR1SC4AA" changeId="1710202476023">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_QIwAUNa-EeyVd-CR1SC4AA" name="[OAB] Activate" repPath="#_QIuyMNa-EeyVd-CR1SC4AA" changeId="1710202617895">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/oa.odesign#//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Blank']"/>
         <target xmi:type="org.polarsys.capella.core.data.oa:EntityPkg" href="CDT_System.capella#a601bc89-b500-494a-a9a5-6cb78ab285a1"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_njwAQNbAEeyVd-CR1SC4AA" name="[OPD] Activate Detection Device" repPath="#_njuyINbAEeyVd-CR1SC4AA" changeId="1710202476023">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_njwAQNbAEeyVd-CR1SC4AA" name="[OPD] Activate Detection Device" repPath="#_njuyINbAEeyVd-CR1SC4AA" changeId="1710202617895">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/oa.odesign#//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Process%20Description']"/>
         <target xmi:type="org.polarsys.capella.core.data.oa:OperationalProcess" href="CDT_System.capella#fed316e0-bed3-4d8a-913b-05bcb86d36a7"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AdTTwNbBEeyVd-CR1SC4AA" name="Act 2 and 3 [OAB] Detect and Download" repPath="#_AdSFoNbBEeyVd-CR1SC4AA" changeId="1710202476023">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AdTTwNbBEeyVd-CR1SC4AA" name="Act 2 and 3 [OAB] Detect and Download" repPath="#_AdSFoNbBEeyVd-CR1SC4AA" changeId="1710202617895">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/oa.odesign#//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Blank']"/>
         <target xmi:type="org.polarsys.capella.core.data.oa:EntityPkg" href="CDT_System.capella#a601bc89-b500-494a-a9a5-6cb78ab285a1"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_OP04YNbVEeyVd-CR1SC4AA" name="[OPD] Detect Concusson" repPath="#_OPzqQNbVEeyVd-CR1SC4AA" changeId="1710202476023">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_OP04YNbVEeyVd-CR1SC4AA" name="[OPD] Detect Concusson" repPath="#_OPzqQNbVEeyVd-CR1SC4AA" changeId="1710202617895">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/oa.odesign#//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Process%20Description']"/>
         <target xmi:type="org.polarsys.capella.core.data.oa:OperationalProcess" href="CDT_System.capella#7b2d0491-bdb6-4feb-a46b-c4a71abe051f"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Spk08NbXEeyVd-CR1SC4AA" name="[OES] [OAS] Detect Concussion 1 (OES)" repPath="#_SpbrANbXEeyVd-CR1SC4AA" changeId="1710202476023">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Spk08NbXEeyVd-CR1SC4AA" name="[OES] [OAS] Detect Concussion 1 (OES)" repPath="#_SpbrANbXEeyVd-CR1SC4AA" changeId="1710202617895">
         <description xmi:type="description_2:SequenceDiagramDescription" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/oa.odesign#//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Interaction%20Scenario']"/>
         <target xmi:type="org.polarsys.capella.core.data.interaction:Scenario" href="CDT_System.capella#fa2b09cf-6ec8-4dfe-80ec-db52b0f4604d"/>
       </ownedRepresentationDescriptors>
