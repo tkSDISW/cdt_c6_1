@@ -114,6 +114,9 @@
         <ownedLinks xsi:type="re:CatalogElementLink" id="0ae084e7-ef9f-4097-9da4-416dfe0d7f7b"
             source="#2b728e1a-862e-4910-9b8e-480d5e15bd3f" target="#887b9814-7b23-4fe9-a3f8-903c1672213d"
             origin="re:CatalogElementLink ../LORAWAN_Library/LORAWAN_Library.capella#664866b4-91ce-4380-9c1f-8514c5ce0920"/>
+        <ownedLinks xsi:type="re:CatalogElementLink" id="9c5e89a0-d516-4e6e-953f-8ee32c8e360a"
+            source="#2b728e1a-862e-4910-9b8e-480d5e15bd3f" target="#147c8a24-f05d-46e0-8726-fb727a2be4a1"
+            origin="re:CatalogElementLink ../LORAWAN_Library/LORAWAN_Library.capella#854591b7-7bbc-43ba-85d4-738ce242dbd5"/>
         <ownedLinks xsi:type="re:CatalogElementLink" id="4540a0ef-b266-47e5-8538-b4a50ca5a8af"
             source="#2b728e1a-862e-4910-9b8e-480d5e15bd3f" target="#c0a070c8-c92a-4473-bd32-320072586e9a"
             origin="re:CatalogElementLink ../LORAWAN_Library/LORAWAN_Library.capella#bc096716-9186-40a3-81a0-5b133b7ab529"/>
@@ -7764,15 +7767,21 @@
         <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="a9b0643a-1615-48ec-a87f-88d4524d2214"
             name="Parent" abstractType="#30d92936-0654-4201-808c-54dac483d054"/>
         <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
+            id="493be545-84f1-46b5-9be9-7e385503dec8" name="Helmet Fit" linkEnds="#1b05da8b-e043-4506-8d90-dec34a9d3450 #01dcc99d-086f-4408-a2f5-7d8122fe48ab"/>
+        <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
             id="d81d7457-4d0c-4aa4-bdd8-6059cde7c84f" name="Cat 5" linkEnds="#887b9814-7b23-4fe9-a3f8-903c1672213d #32b6c872-7613-4bf1-8034-a8cc5e9f7b33"/>
         <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
             id="ef977895-351b-479c-a387-833a8fe98b51" name="Cable" linkEnds="#6be24212-4309-4560-8589-9abdc39b6547 #4d140c90-85d7-4181-965e-793c436b9b41"/>
+        <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
+            id="1946a7ce-7f1f-4107-83e8-e6882931cb44" name="Visual" linkEnds="#ebd6958a-8033-4116-ab1e-b5e2199a3b36 #d5e23538-748e-4799-b21d-7048167e2111"/>
         <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
             id="2a7dfe78-1734-4710-a9e3-2caac96df2ef" name="Visual" linkEnds="#3054622e-ffb4-476b-9cae-6ddf4c0d8d53 #5ae05f54-a8c4-440e-95f0-651f9c8fc422"/>
         <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
             id="c6efef41-e456-4333-b6d9-b4f6d0982a38" name="Visual" linkEnds="#a903e8b2-4dca-43be-990a-203c7743bcd6 #a6c67e14-7bc8-4eac-a4c2-0af60a69f27e"/>
         <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
             id="7c2361eb-8b9b-4daa-9ee6-73d28eb56e0a" name="Off Field Iphone" linkEnds="#a7f213bb-a646-49b3-bba9-b2188985c432 #9af74370-9338-4444-b450-3b7b81128172"/>
+        <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
+            id="363d3c22-085b-4c9a-a9c6-5a3e125ae0b2" name="ID Access" linkEnds="#cbc82004-38d6-479c-af4f-8e18736f84cb #69797889-e194-4afa-aea8-dcaa65b6376d"/>
         <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
             id="6eaa02ae-d2b2-4223-bdaa-d1f64c70984d" name="Handoff" linkEnds="#e530ba20-04c4-4a21-be15-2c0b3706f2b9 #b41cb0dd-8f48-4c78-b8f9-d04fc516201e"/>
         <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
@@ -7839,6 +7848,8 @@
               name="CDT App" abstractType="#10e307d1-550d-4e2c-8462-6ed3a887a741"/>
           <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="2d51b1d4-5bd8-465f-8b9d-2e4d90d1774b"
               name="Bluetooth" abstractType="#8749509f-823f-4bf7-994a-dd9fb826ad5d"/>
+          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="3d5c8d02-cb93-4692-8b81-8ce393e4e0e7"
+              name="Helmet" abstractType="#b5f0c860-ad6c-4cf3-9b6d-8c21bfc8fd03"/>
           <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="2af3550c-48da-4b50-b39a-d80cd594b4d8"
               name="LORAWAN Gateway" abstractType="#367ff96b-152e-4c52-82ec-fd1e1a733a2e"/>
           <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="a156987a-677e-4bbc-b36d-0fe8ff8e67e2"
@@ -7847,6 +7858,8 @@
               name="Router" abstractType="#e230c091-9d28-443f-9063-e35ce6c1c8d9"/>
           <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="0475c75b-c55c-440f-b69a-441e565a56a3"
               name="ISP" abstractType="#96152406-d78e-4d40-8850-c5f395adace7"/>
+          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="f9559380-0fe9-4827-8aac-de3caf9317ed"
+              name="IPAD" abstractType="#7e5dbe1a-9b1f-4e9a-8e88-058dd4a52000"/>
           <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="bb254988-4e46-46af-889b-28b086c141e7"
               name="Cloud Server" abstractType="#ed9060d7-85f2-4fd0-b2c6-9c00cac1cae0"/>
           <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="3ff23c89-c0c6-4676-9cb8-36a5ce905e13"
@@ -7978,7 +7991,11 @@
                 id="6f21db76-b9d2-405a-bd7c-c5d7e9c6b4d1" involved="#7c2361eb-8b9b-4daa-9ee6-73d28eb56e0a"
                 nextInvolvements="#bda1c69f-a1f5-4e99-970d-9178d6f60d6a"/>
             <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
-                id="bda1c69f-a1f5-4e99-970d-9178d6f60d6a" involved="#0b0c4ccb-2cb4-4e9a-87d4-4a6c4aceaac7"/>
+                id="bda1c69f-a1f5-4e99-970d-9178d6f60d6a" involved="#0b0c4ccb-2cb4-4e9a-87d4-4a6c4aceaac7"
+                nextInvolvements="#59d88aec-82ff-4fb6-8ff2-2ab8ea05b572"/>
+            <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
+                id="59d88aec-82ff-4fb6-8ff2-2ab8ea05b572" involved="#d4c8c560-66aa-48d7-a1eb-254e80c4ce70"
+                nextInvolvements="#da7c8862-0bc8-42cb-973b-e73b1427acf0"/>
             <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
                 id="da7c8862-0bc8-42cb-973b-e73b1427acf0" involved="#6775387d-8bd0-44b3-a499-7f7756a5ff7e"
                 nextInvolvements="#84b93ac9-1b22-47b4-921a-f485e12da73a"/>
@@ -8012,10 +8029,16 @@
                 id="928cfe01-e5fc-4435-a9d3-e21837a10fbf" involved="#a156987a-677e-4bbc-b36d-0fe8ff8e67e2"
                 nextInvolvements="#57a5014e-f4a7-4604-bc0d-f89caaad0fad"/>
             <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
-                id="b854ce16-a4a6-4842-9483-fd764b99520c" involved="#6775387d-8bd0-44b3-a499-7f7756a5ff7e"/>
+                id="b854ce16-a4a6-4842-9483-fd764b99520c" involved="#6775387d-8bd0-44b3-a499-7f7756a5ff7e"
+                nextInvolvements="#b8f94999-f532-4a4b-86c5-1725b14fba7d"/>
             <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
                 id="57a5014e-f4a7-4604-bc0d-f89caaad0fad" involved="#d81d7457-4d0c-4aa4-bdd8-6059cde7c84f"
                 nextInvolvements="#b854ce16-a4a6-4842-9483-fd764b99520c"/>
+            <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
+                id="b504ae5f-3aee-458c-8d1d-3eb9ec9eaa9a" involved="#f9559380-0fe9-4827-8aac-de3caf9317ed"/>
+            <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
+                id="b8f94999-f532-4a4b-86c5-1725b14fba7d" involved="#2e92a680-2f2c-4680-83b7-a270ff0e03ec"
+                nextInvolvements="#b504ae5f-3aee-458c-8d1d-3eb9ec9eaa9a"/>
             <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
                 id="e9caf0d5-a70d-48bc-b095-b9e30f4929e7" involved="#bb254988-4e46-46af-889b-28b086c141e7"/>
             <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
@@ -8043,27 +8066,64 @@
                 id="26c0432d-fb96-4624-b752-19843e38cf76" involved="#d81d7457-4d0c-4aa4-bdd8-6059cde7c84f"
                 nextInvolvements="#f3515d6a-82ff-453b-bed0-27dc746cbf8c"/>
             <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
-                id="f3515d6a-82ff-453b-bed0-27dc746cbf8c" involved="#6775387d-8bd0-44b3-a499-7f7756a5ff7e"/>
+                id="f3515d6a-82ff-453b-bed0-27dc746cbf8c" involved="#6775387d-8bd0-44b3-a499-7f7756a5ff7e"
+                nextInvolvements="#c0b35d55-4639-4afb-9afb-ccf5ad5a6053"/>
+            <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
+                id="c0b35d55-4639-4afb-9afb-ccf5ad5a6053" involved="#0a823c44-46ee-42de-8cf3-2e815731a5e8"
+                nextInvolvements="#b70cf831-c6fc-482e-944c-abec39cf6440"/>
             <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
                 id="b70cf831-c6fc-482e-944c-abec39cf6440" involved="#b2c9bee9-4073-476c-9357-5fc016f19816"/>
           </ownedPhysicalPath>
           <ownedPhysicalPath xsi:type="org.polarsys.capella.core.data.cs:PhysicalPath"
               id="bb306ccb-6677-4e2b-b3bc-502e8f61f917" name="Detect Physical Path">
             <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
+                id="6faf69ad-4414-411e-ac26-a26083fc3eed" involved="#056aec13-eb94-4afa-8a62-c03782b46d0a"
+                nextInvolvements="#29ff8c77-5f34-4284-a772-601b4b4d3c52 #79d61388-e095-4b97-9000-ab772e3dc28c"/>
+            <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
+                id="29ff8c77-5f34-4284-a772-601b4b4d3c52" involved="#bc095b8c-942f-4d94-92d7-f77914c9fd34"
+                nextInvolvements="#9dd52f54-b76f-4e4c-962c-18b79d7bd7ea"/>
+            <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
+                id="9dd52f54-b76f-4e4c-962c-18b79d7bd7ea" involved="#3d5c8d02-cb93-4692-8b81-8ce393e4e0e7"
+                nextInvolvements="#00a83b3a-6174-411f-8829-ed808dd7704f"/>
+            <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
+                id="00a83b3a-6174-411f-8829-ed808dd7704f" involved="#493be545-84f1-46b5-9be9-7e385503dec8"
+                nextInvolvements="#8b4102cf-246e-4ef1-8356-50e8974188e2"/>
+            <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
                 id="8b4102cf-246e-4ef1-8356-50e8974188e2" involved="#eef5b359-3a01-4daa-b198-81a9e1aebb02"/>
             <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathReference"
                 id="26f07980-553b-4cd4-8e14-725653706fb6" involved="#e0b28f42-1b61-4ff5-90d2-3f70f046d72c"
                 nextInvolvements="#e43fe973-47ab-498e-b1ae-702a88e09af5"/>
             <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathReference"
-                id="bcf49d4a-c31d-4cc7-8c4e-8dc04d079be9" involved="#fb6a03d1-a947-4bb5-b5bf-5a9cb744b4bb"/>
+                id="bcf49d4a-c31d-4cc7-8c4e-8dc04d079be9" involved="#fb6a03d1-a947-4bb5-b5bf-5a9cb744b4bb"
+                nextInvolvements="#68264df4-8abd-45f9-9f6f-6aafdf536021"/>
             <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
                 id="e43fe973-47ab-498e-b1ae-702a88e09af5" involved="#cdbb2a10-dc56-4086-b54e-fa39b3643bc7"
                 nextInvolvements="#bcf49d4a-c31d-4cc7-8c4e-8dc04d079be9"/>
             <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
                 id="e41285ce-b045-44d4-b7d7-d952c6e5f46a" involved="#7965faee-a304-4f48-a7a3-7f65a956bf7f"/>
+            <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
+                id="68264df4-8abd-45f9-9f6f-6aafdf536021" involved="#1946a7ce-7f1f-4107-83e8-e6882931cb44"
+                nextInvolvements="#e41285ce-b045-44d4-b7d7-d952c6e5f46a"/>
+            <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
+                id="79d61388-e095-4b97-9000-ab772e3dc28c" involved="#a13d93ff-839d-46f2-a7fc-fed2b173cf6f"
+                nextInvolvements="#26f07980-553b-4cd4-8e14-725653706fb6"/>
           </ownedPhysicalPath>
           <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
+              id="a13d93ff-839d-46f2-a7fc-fed2b173cf6f" name="LORA" appliedPropertyValueGroups="#e4d7b91d-3f07-49df-981d-25060d11d7aa"
+              linkEnds="#ad469e28-a94f-40fa-8585-268fcd1fdfbe #f88d27b8-8f4c-4b8c-9eca-dff2636df7e7">
+            <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
+                id="e4d7b91d-3f07-49df-981d-25060d11d7aa" name="Physical Properties">
+              <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:StringPropertyValue"
+                  id="c7ba9768-071f-4ba0-be68-9be531d9bbbe" name="Maximum Distance (m)"
+                  value="300.0"/>
+              <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:StringPropertyValue"
+                  id="ff5c0d7e-58f8-4f8f-92e8-5b898a9ecce0" name="Standard" value="ISO/IEC10725"/>
+            </ownedPropertyValueGroups>
+          </ownedPhysicalLinks>
+          <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
               id="e8dd3f9a-3354-4942-b6ce-5c00cb4e940c" name="WIFI" linkEnds="#c0a070c8-c92a-4473-bd32-320072586e9a #547c9138-8dce-46a6-9cd3-b424985c8557"/>
+          <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
+              id="2e92a680-2f2c-4680-83b7-a270ff0e03ec" name="WIFI" linkEnds="#9f106fa4-309d-413e-89de-a5161596e7b9 #147c8a24-f05d-46e0-8726-fb727a2be4a1"/>
           <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
               id="5d95547a-c398-4329-bb3e-6d9fa601fd2b" name="Internet" linkEnds="#47457943-d2f4-4b9f-b5e5-c14bf8775c6e #fd137f99-0584-4033-bcf4-4f062a6fa009"/>
           <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
@@ -8074,6 +8134,23 @@
               id="f9617c9b-7337-4817-8a66-cd2a71fda0c3" name="Cellular" linkEnds="#3b74c65e-a0f6-4d75-8ff5-f4dd24c869c8 #4aeb69e0-ba8a-4528-9203-0604a9a97e63"/>
           <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
               id="af8d9743-7c6e-423b-bc26-388aaca51cd5" name="WIFI" linkEnds="#b51f595f-73f0-4a99-a4e5-5fe230769d30 #ab06fdec-60e0-4e56-8846-dda71e1d7d68"/>
+          <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
+              id="a6a47da1-8ebc-4ec2-b5ee-79fd8db421ea" name="Blue tooth" appliedPropertyValueGroups="#17274792-9ab7-4e75-a8de-4105d5d38898"
+              linkEnds="#3ff25fb3-e26d-4a69-843c-d2d890026c94 #4b6f1582-dd3e-4cf0-becd-fd674034d0c8">
+            <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
+                id="17274792-9ab7-4e75-a8de-4105d5d38898" name="Physical Properties">
+              <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:StringPropertyValue"
+                  id="805e863f-ef4b-4dcd-bca4-892b4ca1618d" name="Maximum Distance (m)"
+                  value="2.0"/>
+              <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:StringPropertyValue"
+                  id="48764c16-78ef-49fe-9f37-b05a8d1c46a0" name="StringPropertyValue 2"
+                  summary="Standard" value="BLUETOOTH CORE SPECIFICATION Version 5.3"/>
+            </ownedPropertyValueGroups>
+          </ownedPhysicalLinks>
+          <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
+              id="d4c8c560-66aa-48d7-a1eb-254e80c4ce70" name="&#x9;WIFI" linkEnds="#147c8a24-f05d-46e0-8726-fb727a2be4a1 #03141ce3-d4db-48ce-bbac-945e50a015eb"/>
+          <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
+              id="0a823c44-46ee-42de-8cf3-2e815731a5e8" name="ID to Router" linkEnds="#147c8a24-f05d-46e0-8726-fb727a2be4a1 #69ef0405-474b-402c-9195-402ef18a9b02"/>
           <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
               id="876f5312-a02e-4f57-941e-1c405de86b3f" name="Secure Application"
               nature="BEHAVIOR">
@@ -8308,6 +8385,57 @@
                 sourceElement="#8749509f-823f-4bf7-994a-dd9fb826ad5d"/>
           </ownedPhysicalComponents>
           <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+              id="b5f0c860-ad6c-4cf3-9b6d-8c21bfc8fd03" name="Helmet" nature="NODE">
+            <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                id="ce0e63f9-2bef-4dfa-a5a8-49aae04ec04e" name="" constrainedElements="#b5f0c860-ad6c-4cf3-9b6d-8c21bfc8fd03">
+              <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                  id="b8649140-f1bf-4a6c-8064-66ffbc24f569">
+                <bodies></bodies>
+                <languages>capella:linkedText</languages>
+              </ownedSpecification>
+            </ownedConstraints>
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="056aec13-eb94-4afa-8a62-c03782b46d0a"
+                name="Sensor" abstractType="#8a1a4239-0407-43b0-8cb0-38eec5df2039"/>
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="b3eca382-8b07-44cd-828b-d0adfab71007"
+                name="ID" abstractType="#d7543beb-f9bb-4905-ba5f-9a612dc49650"/>
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                id="01dcc99d-086f-4408-a2f5-7d8122fe48ab" name="PP 3"/>
+            <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
+                id="17a882c6-874d-47e9-aa4c-49d3cf825348" name="Physical" linkEnds="#9a2aaf72-abb5-4464-99c3-ec238243fca6 #41ae9b05-2d0d-49d3-a599-2cbb1d5929df">
+              <ownedComponentExchangeAllocations xsi:type="org.polarsys.capella.core.data.fa:ComponentExchangeAllocation"
+                  id="45c22b5a-2eff-4ad2-b4d4-f94a67f3a305" targetElement="#18ee325b-97d3-4738-b0a4-e8a83219ebf7"
+                  sourceElement="#17a882c6-874d-47e9-aa4c-49d3cf825348"/>
+            </ownedPhysicalLinks>
+            <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
+                id="bc095b8c-942f-4d94-92d7-f77914c9fd34" name="H to S" linkEnds="#01dcc99d-086f-4408-a2f5-7d8122fe48ab #c8805ecc-674b-4162-917b-b3ffcdb4cfd0"/>
+            <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+                id="8a1a4239-0407-43b0-8cb0-38eec5df2039" name="Sensor" nature="NODE">
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                  id="9a2aaf72-abb5-4464-99c3-ec238243fca6" name="PP 1">
+                <ownedComponentPortAllocations xsi:type="org.polarsys.capella.core.data.fa:ComponentPortAllocation"
+                    id="aaaa2050-2b21-472f-baf2-a208e257604e" targetElement="#aaab6340-4044-4ade-8a28-5c6ec2bb9ee4"
+                    sourceElement="#9a2aaf72-abb5-4464-99c3-ec238243fca6"/>
+              </ownedFeatures>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                  id="f88d27b8-8f4c-4b8c-9eca-dff2636df7e7" name="PP 2"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                  id="3ff25fb3-e26d-4a69-843c-d2d890026c94" name="PP 3"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                  id="c8805ecc-674b-4162-917b-b3ffcdb4cfd0" name="PP 4"/>
+            </ownedPhysicalComponents>
+            <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+                id="d7543beb-f9bb-4905-ba5f-9a612dc49650" name="ID" nature="NODE">
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                  id="41ae9b05-2d0d-49d3-a599-2cbb1d5929df" name="PP 1">
+                <ownedComponentPortAllocations xsi:type="org.polarsys.capella.core.data.fa:ComponentPortAllocation"
+                    id="b45b918a-8258-4afa-9c55-36be5af8c160" targetElement="#d22ff307-8f13-434a-9186-54d79ff36c5d"
+                    sourceElement="#41ae9b05-2d0d-49d3-a599-2cbb1d5929df"/>
+              </ownedFeatures>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                  id="cbc82004-38d6-479c-af4f-8e18736f84cb" name="PP 4"/>
+            </ownedPhysicalComponents>
+          </ownedPhysicalComponents>
+          <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
               id="367ff96b-152e-4c52-82ec-fd1e1a733a2e" name="LORAWAN Gateway" nature="NODE">
             <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
                 id="19554a79-1752-4709-815b-854da02965f2" name="" constrainedElements="#367ff96b-152e-4c52-82ec-fd1e1a733a2e">
@@ -8345,9 +8473,20 @@
             <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
                 id="887b9814-7b23-4fe9-a3f8-903c1672213d" name="TO MODEM"/>
             <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                id="147c8a24-f05d-46e0-8726-fb727a2be4a1" name="To Local Network CAT 5"/>
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
                 id="c0a070c8-c92a-4473-bd32-320072586e9a" name="To WIFI LORA"/>
             <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
                 id="b51f595f-73f0-4a99-a4e5-5fe230769d30" name="To WIFI Network"/>
+          </ownedPhysicalComponents>
+          <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+              id="7e5dbe1a-9b1f-4e9a-8e88-058dd4a52000" name="IPAD" nature="NODE">
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                id="9f106fa4-309d-413e-89de-a5161596e7b9" name="PP 1"/>
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                id="ebd6958a-8033-4116-ab1e-b5e2199a3b36" name="PP 2"/>
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                id="4b6f1582-dd3e-4cf0-becd-fd674034d0c8" name="PP 3"/>
           </ownedPhysicalComponents>
           <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
               id="ed9060d7-85f2-4fd0-b2c6-9c00cac1cae0" name="Cloud Server" nature="NODE">
@@ -8535,6 +8674,8 @@
               id="4e90e686-816e-4c24-afd9-0e81c68d1595" targetElement="#81dd390c-b3b0-4e5a-91e2-0000512386ab"
               sourceElement="#5776ed68-d9cd-4bb9-ba4b-75c69ee8567f"/>
           <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+              id="d5e23538-748e-4799-b21d-7048167e2111" name="PP 1"/>
+          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
               id="e530ba20-04c4-4a21-be15-2c0b3706f2b9" name="PP 3"/>
           <ownedComponentRealizations xsi:type="org.polarsys.capella.core.data.cs:ComponentRealization"
               id="d86f9369-2a61-400e-9f04-771229f3bd04" targetElement="#9afe04e0-428f-4920-88fb-5cd937e949dd"
@@ -8585,6 +8726,8 @@
           <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
               id="39afc215-a5c2-4d9c-bc25-adfe4bf1b83a" targetElement="#98c9c0f2-907f-4c3b-9fcd-605e88c59ee9"
               sourceElement="#f5231e05-e34c-4ad7-ab77-f36b395af9ba"/>
+          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+              id="1b05da8b-e043-4506-8d90-dec34a9d3450" name="PP 1"/>
           <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
               id="9af74370-9338-4444-b450-3b7b81128172" name="PP 2"/>
           <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
