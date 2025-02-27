@@ -1,0 +1,3263 @@
+# YAML file for Capella objects
+      # YAML file for system model relationships
+      schema:
+        primary_uuid: Unique identifier for the primary object
+        ref_uuid: Unique identifier for a referenced object
+      - name: Detect Concussion
+        type: FunctionalChain
+        primary_uuid: 8234683b-844b-4642-a1de-a84b01f7a5b9
+        description : 
+        involved:
+          - name: Helmet Receives a Hit
+            ref_uuid: uuid : bde556fe-d6d7-493d-9ed0-ed1c354b1aa7
+          - name: Athlete Particpates in Activity
+            ref_uuid: uuid : e2b22929-583b-40fd-83c2-a9d1a64227a1
+          - name: Device records Hit
+            ref_uuid: uuid : f7d6ba3d-d80d-4add-8b86-a0c954f57fc8
+          - name: Trainer Recieves Concussion Alert
+            ref_uuid: uuid : 13f47d89-0e70-47bd-926c-453200cc54cc
+          - name: Send message
+            ref_uuid: uuid : 9f1d9d13-c3ae-47a2-8b80-9fdff304fde4
+          - name: Alert the Training
+            ref_uuid: uuid : db746a84-1293-4365-95f2-2671e677d6c3
+          - name: Relay message
+            ref_uuid: uuid : 282f0978-359b-4de6-80e5-055cc36f3794
+          - name: Record the Concussion
+            ref_uuid: uuid : 3309513a-2b0c-4626-902e-cbcaafe8942b
+          - name: Provide Hit Data
+            ref_uuid: uuid : af37a9c1-6cc8-4307-960a-ad78181629f0
+          - name: Activity
+            ref_uuid: uuid : 033e3152-51b3-45d7-a9a1-aae2f3decad1
+          - name: Hit
+            ref_uuid: uuid : 68e7ee56-30a5-4c17-8bfb-5309173b9a78
+          - name: Concussion
+            ref_uuid: uuid : 97bdedf8-82ae-456e-8aa0-5a2822061c06
+          - name: Stored Data
+            ref_uuid: uuid : 51513826-9e5b-41a3-8a8a-e83bd29f289a
+          - name: Concussion Alert to Trainer
+            ref_uuid: uuid : aa8aeda1-33ce-4fc7-be1b-a304cb2015fe
+          - name: Concussion Message
+            ref_uuid: uuid : 2ad3591e-5a1b-458d-be75-1a6f8a8b6aed
+          - name: Concussion Message
+            ref_uuid: uuid : 45077ed7-3532-4a54-983a-4472bf80b75f
+          - name: Concussion Alert
+            ref_uuid: uuid : d194214f-1ab1-443a-97ab-38dc1fe35d02
+      - name: Helmet Receives a Hit
+        type: LogicalFunction
+        primary_uuid: bde556fe-d6d7-493d-9ed0-ed1c354b1aa7
+        description : 
+        owner :
+          - name : Helmet Receives a Hit
+            ref_uuid : 3f9eaf95-f8f9-4742-a258-bec862312a7c
+        child functions:
+        inputs:
+          - name: inActivity
+            description :  
+            ref_uuid : fb696faf-bb69-451d-b0e6-e5330062f509
+            exchanges:
+              - name: Activity
+                ref_uuid:  033e3152-51b3-45d7-a9a1-aae2f3decad1
+                description :  
+                source_function_name: Athlete Particpates in Activity
+                ref_uuid: e2b22929-583b-40fd-83c2-a9d1a64227a1
+                target_function_name: Helmet Receives a Hit
+                ref_uuid: bde556fe-d6d7-493d-9ed0-ed1c354b1aa7
+        outputs:
+          - name: outHit
+            description :  
+            ref_uuid : 4308e79d-4ad2-4949-a123-233433a80465
+            exchanges:
+              - name: Hit
+                ref_uuid:  68e7ee56-30a5-4c17-8bfb-5309173b9a78
+                description :  
+                source_function_name: Helmet Receives a Hit
+                ref_uuid: bde556fe-d6d7-493d-9ed0-ed1c354b1aa7
+                target_function_name: Device records Hit
+                ref_uuid: f7d6ba3d-d80d-4add-8b86-a0c954f57fc8
+      - name: Athlete Particpates in Activity
+        type: LogicalFunction
+        primary_uuid: e2b22929-583b-40fd-83c2-a9d1a64227a1
+        description : 
+        owner :
+          - name : Athlete
+            ref_uuid : 853fbf50-c129-4207-9c40-cec0301fb69e
+        child functions:
+        inputs:
+        outputs:
+          - name: outActivity
+            description :  
+            ref_uuid : 5fe92e62-618c-4868-b325-7543842cd063
+            exchanges:
+              - name: Activity
+                ref_uuid:  033e3152-51b3-45d7-a9a1-aae2f3decad1
+                description :  
+                source_function_name: Athlete Particpates in Activity
+                ref_uuid: e2b22929-583b-40fd-83c2-a9d1a64227a1
+                target_function_name: Helmet Receives a Hit
+                ref_uuid: bde556fe-d6d7-493d-9ed0-ed1c354b1aa7
+      - name: Device records Hit
+        type: LogicalFunction
+        primary_uuid: f7d6ba3d-d80d-4add-8b86-a0c954f57fc8
+        description : 
+        owner :
+          - name : Sensing Device
+            ref_uuid : 474b9c16-f46b-431c-bcec-d9139e4b85c1
+        child functions:
+        inputs:
+          - name: inHit
+            description :  
+            ref_uuid : 1032fc5d-b2cc-4031-894a-6657546408ae
+            exchanges:
+              - name: Hit
+                ref_uuid:  68e7ee56-30a5-4c17-8bfb-5309173b9a78
+                description :  
+                source_function_name: Helmet Receives a Hit
+                ref_uuid: bde556fe-d6d7-493d-9ed0-ed1c354b1aa7
+                target_function_name: Device records Hit
+                ref_uuid: f7d6ba3d-d80d-4add-8b86-a0c954f57fc8
+        outputs:
+          - name: outConcussion
+            description :  
+            ref_uuid : 5277a449-2675-4456-900c-782d1e5ddc84
+            exchanges:
+              - name: Concussion
+                ref_uuid:  97bdedf8-82ae-456e-8aa0-5a2822061c06
+                description :  
+                source_function_name: Device records Hit
+                ref_uuid: f7d6ba3d-d80d-4add-8b86-a0c954f57fc8
+                target_function_name: Send message
+                ref_uuid: 9f1d9d13-c3ae-47a2-8b80-9fdff304fde4
+          - name: outStored Data
+            description :  
+            ref_uuid : bf348b5f-499b-4c69-8c4d-1ea3f0a58246
+            exchanges:
+              - name: Stored Data
+                ref_uuid:  51513826-9e5b-41a3-8a8a-e83bd29f289a
+                description :  
+                source_function_name: Device records Hit
+                ref_uuid: f7d6ba3d-d80d-4add-8b86-a0c954f57fc8
+                target_function_name: Provide Hit Data
+                ref_uuid: af37a9c1-6cc8-4307-960a-ad78181629f0
+      - name: Trainer Recieves Concussion Alert
+        type: LogicalFunction
+        primary_uuid: 13f47d89-0e70-47bd-926c-453200cc54cc
+        description : 
+        owner :
+          - name : Trainer
+            ref_uuid : 9afe04e0-428f-4920-88fb-5cd937e949dd
+        child functions:
+        inputs:
+          - name: inConcussion Policy
+            description :  
+            ref_uuid : 8fc1dea9-7c48-4801-a127-3575b863aca3
+            exchanges:
+              - name: Concussion Policy
+                ref_uuid:  a02cc65e-95fe-4a14-9ddc-e85e3ac99c25
+                description :  
+                source_function_name: Established Concussion Policy
+                ref_uuid: 4fa7e60c-47e4-457a-aeff-87980d02261a
+                target_function_name: Trainer Recieves Concussion Alert
+                ref_uuid: 13f47d89-0e70-47bd-926c-453200cc54cc
+          - name: inConcussion Alert to Trainer
+            description :  
+            ref_uuid : ef6f3427-ef93-410d-af02-d8ae7fb38f57
+            exchanges:
+              - name: Concussion Alert to Trainer
+                ref_uuid:  aa8aeda1-33ce-4fc7-be1b-a304cb2015fe
+                description :  
+                source_function_name: Alert the Training
+                ref_uuid: db746a84-1293-4365-95f2-2671e677d6c3
+                target_function_name: Trainer Recieves Concussion Alert
+                ref_uuid: 13f47d89-0e70-47bd-926c-453200cc54cc
+        outputs:
+          - name: outAlert
+            description :  
+            ref_uuid : a5a22cfc-e372-42cd-9a8e-090ff730868f
+            exchanges:
+              - name: Alert
+                ref_uuid:  614f2cf6-af23-4751-b457-0ab203481315
+                description :  
+                source_function_name: Trainer Recieves Concussion Alert
+                ref_uuid: 13f47d89-0e70-47bd-926c-453200cc54cc
+                target_function_name: Yield to Evaluation
+                ref_uuid: 52936d98-6ca4-47b4-b522-bf7197550944
+          - name: FOP 2
+            description :  
+            ref_uuid : bc280ffc-fc92-443f-8d8e-387bd4523c5b
+            exchanges:
+              - name: Retrieve
+                ref_uuid:  141f7a3c-ac31-4dcb-97f0-030743f4cf14
+                description :  
+                source_function_name: Trainer Recieves Concussion Alert
+                ref_uuid: 13f47d89-0e70-47bd-926c-453200cc54cc
+                target_function_name: Intitate Data Retrieval
+                ref_uuid: 786e152b-fdc2-48a4-b45c-5ec9b09336a7
+      - name: Send message
+        type: LogicalFunction
+        primary_uuid: 9f1d9d13-c3ae-47a2-8b80-9fdff304fde4
+        description : 
+        owner :
+          - name : Sensing Device
+            ref_uuid : 474b9c16-f46b-431c-bcec-d9139e4b85c1
+        child functions:
+        inputs:
+          - name: inConcussion
+            description :  
+            ref_uuid : b6b81887-72d1-455d-8d5a-9981d9379c31
+            exchanges:
+              - name: Concussion
+                ref_uuid:  97bdedf8-82ae-456e-8aa0-5a2822061c06
+                description :  
+                source_function_name: Device records Hit
+                ref_uuid: f7d6ba3d-d80d-4add-8b86-a0c954f57fc8
+                target_function_name: Send message
+                ref_uuid: 9f1d9d13-c3ae-47a2-8b80-9fdff304fde4
+        outputs:
+          - name: FOP 1
+            description :  
+            ref_uuid : 22b1391f-4471-429b-b3db-5cef5277d0ed
+            exchanges:
+              - name: Concussion Message
+                ref_uuid:  2ad3591e-5a1b-458d-be75-1a6f8a8b6aed
+                description :  
+                source_function_name: Send message
+                ref_uuid: 9f1d9d13-c3ae-47a2-8b80-9fdff304fde4
+                target_function_name: Relay message
+                ref_uuid: 282f0978-359b-4de6-80e5-055cc36f3794
+      - name: Alert the Training
+        type: LogicalFunction
+        primary_uuid: db746a84-1293-4365-95f2-2671e677d6c3
+        description : 
+        owner :
+          - name : CDT App
+            ref_uuid : 890ef583-e398-4ad7-8383-0995c075df19
+        child functions:
+        inputs:
+          - name: FIP 1
+            description :  
+            ref_uuid : e0e7d69b-0d96-41e2-ad6a-5ff1925efd2c
+            exchanges:
+              - name: Concussion Alert
+                ref_uuid:  d194214f-1ab1-443a-97ab-38dc1fe35d02
+                description :  
+                source_function_name: Record the Concussion
+                ref_uuid: 3309513a-2b0c-4626-902e-cbcaafe8942b
+                target_function_name: Alert the Training
+                ref_uuid: db746a84-1293-4365-95f2-2671e677d6c3
+        outputs:
+          - name: outConcussion Alert to Trainer
+            description :  
+            ref_uuid : 1979cf15-678d-462e-9bf8-4fd5c7966db5
+            exchanges:
+              - name: Concussion Alert to Trainer
+                ref_uuid:  aa8aeda1-33ce-4fc7-be1b-a304cb2015fe
+                description :  
+                source_function_name: Alert the Training
+                ref_uuid: db746a84-1293-4365-95f2-2671e677d6c3
+                target_function_name: Trainer Recieves Concussion Alert
+                ref_uuid: 13f47d89-0e70-47bd-926c-453200cc54cc
+          - name: FOP 2
+            description :  
+            ref_uuid : 83158867-a232-40d9-ab3f-b31f5507bfd3
+            exchanges:
+              - name: Player ID
+                ref_uuid:  844adaef-76be-4b7b-9fd1-ba948c8ad5c3
+                description :  
+                source_function_name: Alert the Training
+                ref_uuid: db746a84-1293-4365-95f2-2671e677d6c3
+                target_function_name: Intitate Data Retrieval
+                ref_uuid: 786e152b-fdc2-48a4-b45c-5ec9b09336a7
+      - name: Relay message
+        type: LogicalFunction
+        primary_uuid: 282f0978-359b-4de6-80e5-055cc36f3794
+        description : 
+        owner :
+          - name : Lorawan
+            ref_uuid : f51508f5-da2c-4359-9d05-f449a53981cc
+        child functions:
+        inputs:
+          - name: FIP 1
+            description :  
+            ref_uuid : 56ea3727-c921-48e8-9104-78c1ef3dd0db
+            exchanges:
+              - name: Concussion Message
+                ref_uuid:  2ad3591e-5a1b-458d-be75-1a6f8a8b6aed
+                description :  
+                source_function_name: Send message
+                ref_uuid: 9f1d9d13-c3ae-47a2-8b80-9fdff304fde4
+                target_function_name: Relay message
+                ref_uuid: 282f0978-359b-4de6-80e5-055cc36f3794
+        outputs:
+          - name: FOP 1
+            description :  
+            ref_uuid : 445477c7-b2e7-4a53-bb96-c31845b2438e
+            exchanges:
+              - name: Concussion Message
+                ref_uuid:  45077ed7-3532-4a54-983a-4472bf80b75f
+                description :  
+                source_function_name: Relay message
+                ref_uuid: 282f0978-359b-4de6-80e5-055cc36f3794
+                target_function_name: Record the Concussion
+                ref_uuid: 3309513a-2b0c-4626-902e-cbcaafe8942b
+      - name: Record the Concussion
+        type: LogicalFunction
+        primary_uuid: 3309513a-2b0c-4626-902e-cbcaafe8942b
+        description : 
+        owner :
+          - name : Secure Application
+            ref_uuid : 8b37931a-2e73-4222-aced-2bbebc0601b4
+        child functions:
+        inputs:
+          - name: FIP 1
+            description :  
+            ref_uuid : 9a842ba6-b3d5-435d-beb9-952ab43aa68d
+            exchanges:
+              - name: Concussion Message
+                ref_uuid:  45077ed7-3532-4a54-983a-4472bf80b75f
+                description :  
+                source_function_name: Relay message
+                ref_uuid: 282f0978-359b-4de6-80e5-055cc36f3794
+                target_function_name: Record the Concussion
+                ref_uuid: 3309513a-2b0c-4626-902e-cbcaafe8942b
+        outputs:
+          - name: FOP 2
+            description :  
+            ref_uuid : 65384184-cb00-4d02-96a0-69f5ba96f33e
+            exchanges:
+              - name: Concussion Alert
+                ref_uuid:  d194214f-1ab1-443a-97ab-38dc1fe35d02
+                description :  
+                source_function_name: Record the Concussion
+                ref_uuid: 3309513a-2b0c-4626-902e-cbcaafe8942b
+                target_function_name: Alert the Training
+                ref_uuid: db746a84-1293-4365-95f2-2671e677d6c3
+      - name: Provide Hit Data
+        type: LogicalFunction
+        primary_uuid: af37a9c1-6cc8-4307-960a-ad78181629f0
+        description : 
+        owner :
+          - name : Sensing Device
+            ref_uuid : 474b9c16-f46b-431c-bcec-d9139e4b85c1
+        child functions:
+        inputs:
+          - name: FIP 1
+            description :  
+            ref_uuid : 2b677385-4016-4ce2-9e19-9a3ffed3a093
+            exchanges:
+              - name: Request
+                ref_uuid:  b63a6c42-4adc-4f2d-bbb7-8a230c7a9862
+                description :  
+                source_function_name: Request the Data 
+                ref_uuid: ae9a4a5b-d64e-4aad-86fb-ab5acd898b95
+                target_function_name: Provide Hit Data
+                ref_uuid: af37a9c1-6cc8-4307-960a-ad78181629f0
+          - name: inStored Data
+            description :  
+            ref_uuid : 14490978-f6a2-4bbf-9453-59e313c92e7b
+            exchanges:
+              - name: Stored Data
+                ref_uuid:  51513826-9e5b-41a3-8a8a-e83bd29f289a
+                description :  
+                source_function_name: Device records Hit
+                ref_uuid: f7d6ba3d-d80d-4add-8b86-a0c954f57fc8
+                target_function_name: Provide Hit Data
+                ref_uuid: af37a9c1-6cc8-4307-960a-ad78181629f0
+        outputs:
+    - name: Activity
+      type: FunctionalExchange
+      primary_uuid: 033e3152-51b3-45d7-a9a1-aae2f3decad1
+      description : 
+      source function:
+          - name: Athlete Particpates in Activity
+            ref_uuid: e2b22929-583b-40fd-83c2-a9d1a64227a1
+      target function:
+          - name: Helmet Receives a Hit
+            ref_uuid: bde556fe-d6d7-493d-9ed0-ed1c354b1aa7
+      involving functional chains:
+        - name: Detect Concussion
+          ref_uuid : 8234683b-844b-4642-a1de-a84b01f7a5b9
+    - name: Hit
+      type: FunctionalExchange
+      primary_uuid: 68e7ee56-30a5-4c17-8bfb-5309173b9a78
+      description : 
+      source function:
+          - name: Helmet Receives a Hit
+            ref_uuid: bde556fe-d6d7-493d-9ed0-ed1c354b1aa7
+      target function:
+          - name: Device records Hit
+            ref_uuid: f7d6ba3d-d80d-4add-8b86-a0c954f57fc8
+      involving functional chains:
+        - name: Detect Concussion
+          ref_uuid : 8234683b-844b-4642-a1de-a84b01f7a5b9
+    - name: Concussion
+      type: FunctionalExchange
+      primary_uuid: 97bdedf8-82ae-456e-8aa0-5a2822061c06
+      description : 
+      source function:
+          - name: Device records Hit
+            ref_uuid: f7d6ba3d-d80d-4add-8b86-a0c954f57fc8
+      target function:
+          - name: Send message
+            ref_uuid: 9f1d9d13-c3ae-47a2-8b80-9fdff304fde4
+      involving functional chains:
+        - name: Detect Concussion
+          ref_uuid : 8234683b-844b-4642-a1de-a84b01f7a5b9
+    - name: Stored Data
+      type: FunctionalExchange
+      primary_uuid: 51513826-9e5b-41a3-8a8a-e83bd29f289a
+      description : 
+      source function:
+          - name: Device records Hit
+            ref_uuid: f7d6ba3d-d80d-4add-8b86-a0c954f57fc8
+      target function:
+          - name: Provide Hit Data
+            ref_uuid: af37a9c1-6cc8-4307-960a-ad78181629f0
+      involving functional chains:
+        - name: Detect Concussion
+          ref_uuid : 8234683b-844b-4642-a1de-a84b01f7a5b9
+    - name: Concussion Alert to Trainer
+      type: FunctionalExchange
+      primary_uuid: aa8aeda1-33ce-4fc7-be1b-a304cb2015fe
+      description : 
+      source function:
+          - name: Alert the Training
+            ref_uuid: db746a84-1293-4365-95f2-2671e677d6c3
+      target function:
+          - name: Trainer Recieves Concussion Alert
+            ref_uuid: 13f47d89-0e70-47bd-926c-453200cc54cc
+      involving functional chains:
+        - name: Detect Concussion
+          ref_uuid : 8234683b-844b-4642-a1de-a84b01f7a5b9
+    - name: Concussion Message
+      type: FunctionalExchange
+      primary_uuid: 2ad3591e-5a1b-458d-be75-1a6f8a8b6aed
+      description : 
+      source function:
+          - name: Send message
+            ref_uuid: 9f1d9d13-c3ae-47a2-8b80-9fdff304fde4
+      target function:
+          - name: Relay message
+            ref_uuid: 282f0978-359b-4de6-80e5-055cc36f3794
+      involving functional chains:
+        - name: Detect Concussion
+          ref_uuid : 8234683b-844b-4642-a1de-a84b01f7a5b9
+    - name: Concussion Message
+      type: FunctionalExchange
+      primary_uuid: 45077ed7-3532-4a54-983a-4472bf80b75f
+      description : 
+      source function:
+          - name: Relay message
+            ref_uuid: 282f0978-359b-4de6-80e5-055cc36f3794
+      target function:
+          - name: Record the Concussion
+            ref_uuid: 3309513a-2b0c-4626-902e-cbcaafe8942b
+      involving functional chains:
+        - name: Detect Concussion
+          ref_uuid : 8234683b-844b-4642-a1de-a84b01f7a5b9
+    - name: Concussion Alert
+      type: FunctionalExchange
+      primary_uuid: d194214f-1ab1-443a-97ab-38dc1fe35d02
+      description : 
+      source function:
+          - name: Record the Concussion
+            ref_uuid: 3309513a-2b0c-4626-902e-cbcaafe8942b
+      target function:
+          - name: Alert the Training
+            ref_uuid: db746a84-1293-4365-95f2-2671e677d6c3
+      involving functional chains:
+        - name: Detect Concussion
+          ref_uuid : 8234683b-844b-4642-a1de-a84b01f7a5b9
+      - name: Helmet Receives a Hit
+        type: LogicalComponent
+        primary_uuid: 3f9eaf95-f8f9-4742-a258-bec862312a7c
+        description : 
+        is_human : False
+        components:
+        deployed components:
+        allocated functions:
+          - name: Provide access to sensing device mounting
+            ref_uuid : e7016106-2dfa-4635-8518-5fcab8a4d9bb
+          - name: Receive Athlete 
+            ref_uuid : ae80551c-ebd1-41f5-aebe-f2128269167a
+          - name: Helmet Receives a Hit
+            ref_uuid : bde556fe-d6d7-493d-9ed0-ed1c354b1aa7
+        ports:
+          - name: CP 1
+            description :  
+            ref_uuid : 8390999c-710e-429d-a5e9-126a47be1a82
+            exchanges:
+              - name: Athlete to Helmut
+                ref_uuid:  2bf42ea5-c76a-4de2-8609-15fda7c207f0
+                description :  
+                source_component_name: Athlete
+                ref__uuid: 853fbf50-c129-4207-9c40-cec0301fb69e
+                target_component_name: Helmet Receives a Hit
+                ref_uuid: 3f9eaf95-f8f9-4742-a258-bec862312a7c
+          - name: CP 2
+            description :  
+            ref_uuid : b0242693-b648-49fe-99f5-4637bc4c2bbe
+            exchanges:
+              - name: Helmut to Sensing Device
+                ref_uuid:  72474429-4604-476c-b55b-c5969cb59c2e
+                description :  
+                source_component_name: Helmet Receives a Hit
+                ref__uuid: 3f9eaf95-f8f9-4742-a258-bec862312a7c
+                target_component_name: Sensing Device
+                ref_uuid: 474b9c16-f46b-431c-bcec-d9139e4b85c1
+    - name: inActivity
+      type: FunctionInputPort
+      primary_uuid: fb696faf-bb69-451d-b0e6-e5330062f509
+      description : 
+    - name: outHit
+      type: FunctionOutputPort
+      primary_uuid: 4308e79d-4ad2-4949-a123-233433a80465
+      description : 
+      - name: Athlete
+        type: LogicalComponent
+        primary_uuid: 853fbf50-c129-4207-9c40-cec0301fb69e
+        description : 
+        is_human : False
+        components:
+        deployed components:
+        allocated functions:
+          - name: Provide Data for Profile
+            ref_uuid : 5d4d80f8-bc2c-405a-b3d5-3de5bbb3761c
+          - name: Recieve ID
+            ref_uuid : dc2dff7a-3526-4626-8e0d-73232c92a601
+          - name: Insert ID into Sensing Device
+            ref_uuid : 3f35d1b6-897e-4579-9c8b-06da38624748
+          - name: Place on Helmut
+            ref_uuid : 09b3a7bc-e652-4a6f-a4e1-e6bbfd1c1afc
+          - name: Athlete Particpates in Activity
+            ref_uuid : e2b22929-583b-40fd-83c2-a9d1a64227a1
+          - name: Yield to Evaluation
+            ref_uuid : 52936d98-6ca4-47b4-b522-bf7197550944
+          - name: Report Received
+            ref_uuid : 8086a7fd-84ef-444b-87f3-b1054a29c72e
+        ports:
+          - name: CP 1
+            description :  
+            ref_uuid : bac78d43-5083-4278-9cbe-739d624c1f48
+            exchanges:
+              - name: Athlete to Helmut
+                ref_uuid:  2bf42ea5-c76a-4de2-8609-15fda7c207f0
+                description :  
+                source_component_name: Athlete
+                ref__uuid: 853fbf50-c129-4207-9c40-cec0301fb69e
+                target_component_name: Helmet Receives a Hit
+                ref_uuid: 3f9eaf95-f8f9-4742-a258-bec862312a7c
+          - name: CP 2
+            description :  
+            ref_uuid : e14cd9fa-7191-405c-a25f-756c9fa36774
+            exchanges:
+              - name: SA- Athlete
+                ref_uuid:  bc51e7d9-32bf-446d-b3ad-1c2d4b1639bb
+                description :  
+                source_component_name: Secure Application
+                ref__uuid: 8b37931a-2e73-4222-aced-2bbebc0601b4
+                target_component_name: Athlete
+                ref_uuid: 853fbf50-c129-4207-9c40-cec0301fb69e
+    - name: outActivity
+      type: FunctionOutputPort
+      primary_uuid: 5fe92e62-618c-4868-b325-7543842cd063
+      description : 
+      - name: Sensing Device
+        type: LogicalComponent
+        primary_uuid: 474b9c16-f46b-431c-bcec-d9139e4b85c1
+        description : 
+        is_human : False
+        components:
+        deployed components:
+        allocated functions:
+          - name: Provide access to helmut mounting
+            ref_uuid : 83ee6305-0dd2-4194-8447-570af8053999
+          - name: Enable Secure Collection
+            ref_uuid : ad028dc1-6139-49bf-81bb-f9d11628b2e8
+          - name: Recieve ID
+            ref_uuid : 2c188c49-9cfb-402e-84ae-c013e70d190b
+          - name: Device records Hit
+            ref_uuid : f7d6ba3d-d80d-4add-8b86-a0c954f57fc8
+          - name: Send message
+            ref_uuid : 9f1d9d13-c3ae-47a2-8b80-9fdff304fde4
+          - name: Provide Hit Data
+            ref_uuid : af37a9c1-6cc8-4307-960a-ad78181629f0
+          - name: Enable Monitoring
+            ref_uuid : d3f8e543-5954-4747-ad7d-589e3bcf5f0d
+          - name: Look for bluetooth connect
+            ref_uuid : 8e52cb9c-c373-41db-b7bc-d7023c918da0
+        ports:
+          - name: CP 1
+            description :  
+            ref_uuid : f79ca02b-b586-4006-91fc-ff906ffb1f88
+            exchanges:
+              - name: Helmut to Sensing Device
+                ref_uuid:  72474429-4604-476c-b55b-c5969cb59c2e
+                description :  
+                source_component_name: Helmet Receives a Hit
+                ref__uuid: 3f9eaf95-f8f9-4742-a258-bec862312a7c
+                target_component_name: Sensing Device
+                ref_uuid: 474b9c16-f46b-431c-bcec-d9139e4b85c1
+          - name: CP 2
+            description :  
+            ref_uuid : 770cc355-2c64-47e9-8634-af6c7cd504a0
+            exchanges:
+              - name: SD to Lorawant
+                ref_uuid:  f28751f1-1ef8-4aa9-a079-a35053f18e4d
+                description :  
+                source_component_name: Sensing Device
+                ref__uuid: 474b9c16-f46b-431c-bcec-d9139e4b85c1
+                target_component_name: Lorawan
+                ref_uuid: f51508f5-da2c-4359-9d05-f449a53981cc
+        state machines:
+          - name: StateMachine 1
+            ref_uuid : deabdcf8-dd0c-40ea-8baa-f855d5e16535
+    - name: inHit
+      type: FunctionInputPort
+      primary_uuid: 1032fc5d-b2cc-4031-894a-6657546408ae
+      description : 
+    - name: outConcussion
+      type: FunctionOutputPort
+      primary_uuid: 5277a449-2675-4456-900c-782d1e5ddc84
+      description : 
+    - name: outStored Data
+      type: FunctionOutputPort
+      primary_uuid: bf348b5f-499b-4c69-8c4d-1ea3f0a58246
+      description : 
+      - name: Trainer
+        type: LogicalComponent
+        primary_uuid: 9afe04e0-428f-4920-88fb-5cd937e949dd
+        description : 
+        is_human : False
+        components:
+        deployed components:
+        allocated functions:
+          - name: Create profiles for Athletes
+            ref_uuid : da1fcd79-4f46-4225-ada1-73dc08e30ae6
+          - name: Create Unique IDs
+            ref_uuid : eb8a41ae-c853-41c7-a265-895682e72297
+          - name: Provide ID to Athlete
+            ref_uuid : 5305631e-a97b-441c-b863-33cd23f5ef7d
+          - name: Assemble System Components
+            ref_uuid : 641a1c4f-0d1c-424d-b50b-8e2b63a98068
+          - name: Prep the device for use
+            ref_uuid : 9adb235f-c2ad-4821-bb24-91eabfc5caef
+          - name: Recieve Enabled Signal from Athelete Helmut
+            ref_uuid : 981ce419-557c-4c0b-93bd-d38291ae182e
+          - name: Trainer Recieves Concussion Alert
+            ref_uuid : 13f47d89-0e70-47bd-926c-453200cc54cc
+          - name: Data can be reviewed
+            ref_uuid : 72f06842-ef13-411f-b1ea-47742a8f8a34
+          - name: Executes Policies
+            ref_uuid : d8674072-5f19-4f11-8399-e069c4ac00bc
+        ports:
+          - name: CP 1
+            description :  
+            ref_uuid : bb869cb6-07be-4586-a4b0-b40be077a79e
+            exchanges:
+              - name: CDT App - T
+                ref_uuid:  7d672e9f-af27-418b-aa8b-9d7e409b3b8b
+                description :  
+                source_component_name: CDT App
+                ref__uuid: 890ef583-e398-4ad7-8383-0995c075df19
+                target_component_name: Trainer
+                ref_uuid: 9afe04e0-428f-4920-88fb-5cd937e949dd
+    - name: inConcussion Policy
+      type: FunctionInputPort
+      primary_uuid: 8fc1dea9-7c48-4801-a127-3575b863aca3
+      description : 
+    - name: Concussion Policy
+      type: FunctionalExchange
+      primary_uuid: a02cc65e-95fe-4a14-9ddc-e85e3ac99c25
+      description : 
+      source function:
+          - name: Established Concussion Policy
+            ref_uuid: 4fa7e60c-47e4-457a-aeff-87980d02261a
+      target function:
+          - name: Trainer Recieves Concussion Alert
+            ref_uuid: 13f47d89-0e70-47bd-926c-453200cc54cc
+    - name: inConcussion Alert to Trainer
+      type: FunctionInputPort
+      primary_uuid: ef6f3427-ef93-410d-af02-d8ae7fb38f57
+      description : 
+    - name: outAlert
+      type: FunctionOutputPort
+      primary_uuid: a5a22cfc-e372-42cd-9a8e-090ff730868f
+      description : 
+    - name: Alert
+      type: FunctionalExchange
+      primary_uuid: 614f2cf6-af23-4751-b457-0ab203481315
+      description : 
+      source function:
+          - name: Trainer Recieves Concussion Alert
+            ref_uuid: 13f47d89-0e70-47bd-926c-453200cc54cc
+      target function:
+          - name: Yield to Evaluation
+            ref_uuid: 52936d98-6ca4-47b4-b522-bf7197550944
+      involving functional chains:
+        - name: Download Data
+          ref_uuid : a22f020b-da82-45e5-9c15-da21e238d929
+    - name: FOP 2
+      type: FunctionOutputPort
+      primary_uuid: bc280ffc-fc92-443f-8d8e-387bd4523c5b
+      description : 
+    - name: Retrieve
+      type: FunctionalExchange
+      primary_uuid: 141f7a3c-ac31-4dcb-97f0-030743f4cf14
+      description : 
+      source function:
+          - name: Trainer Recieves Concussion Alert
+            ref_uuid: 13f47d89-0e70-47bd-926c-453200cc54cc
+      target function:
+          - name: Intitate Data Retrieval
+            ref_uuid: 786e152b-fdc2-48a4-b45c-5ec9b09336a7
+    - name: inConcussion
+      type: FunctionInputPort
+      primary_uuid: b6b81887-72d1-455d-8d5a-9981d9379c31
+      description : 
+    - name: FOP 1
+      type: FunctionOutputPort
+      primary_uuid: 22b1391f-4471-429b-b3db-5cef5277d0ed
+      description : 
+      - name: CDT App
+        type: LogicalComponent
+        primary_uuid: 890ef583-e398-4ad7-8383-0995c075df19
+        description : 
+        is_human : False
+        components:
+        deployed components:
+        allocated functions:
+          - name: Alert the Training
+            ref_uuid : db746a84-1293-4365-95f2-2671e677d6c3
+          - name: Intitate Data Retrieval
+            ref_uuid : 786e152b-fdc2-48a4-b45c-5ec9b09336a7
+          - name: Data is Presented
+            ref_uuid : f64c2e51-fe50-466c-ad85-7f94d6951630
+          - name: Request Report to be sent
+            ref_uuid : 1e72e281-1385-42ad-a80a-9981bc989960
+          - name: Enable Indicated
+            ref_uuid : 1d8abe23-7ba6-43a8-8dfb-7c259faa7cf5
+          - name: Gather Profile Data
+            ref_uuid : b2c1d563-b6ed-479a-8c5a-a5ebb9d568d7
+          - name: Initiate ID Creation
+            ref_uuid : 7f05af6c-f457-44bc-b2f9-9619d208b2b8
+        ports:
+          - name: CP 1
+            description :  
+            ref_uuid : aa256b48-7c96-4c0b-8175-a200f45cb633
+            exchanges:
+              - name: SA-CDT App
+                ref_uuid:  71336acd-8612-426a-a43e-a50cca5d1561
+                description :  
+                source_component_name: Secure Application
+                ref__uuid: 8b37931a-2e73-4222-aced-2bbebc0601b4
+                target_component_name: CDT App
+                ref_uuid: 890ef583-e398-4ad7-8383-0995c075df19
+          - name: CP 2
+            description :  
+            ref_uuid : b1605036-b3ed-4fb3-8693-1ce2a29ae6b9
+            exchanges:
+              - name: CDT App - T
+                ref_uuid:  7d672e9f-af27-418b-aa8b-9d7e409b3b8b
+                description :  
+                source_component_name: CDT App
+                ref__uuid: 890ef583-e398-4ad7-8383-0995c075df19
+                target_component_name: Trainer
+                ref_uuid: 9afe04e0-428f-4920-88fb-5cd937e949dd
+          - name: CP 3
+            description :  
+            ref_uuid : 8a545295-1b64-49cb-beca-fae34392d1e2
+            exchanges:
+              - name: BT - CDTApp
+                ref_uuid:  1a78bd51-6f84-42bf-99ce-36c157a7fb92
+                description :  
+                source_component_name: Bluetooth
+                ref__uuid: 8e9dcb1f-fee0-472a-89f8-b51053509ceb
+                target_component_name: CDT App
+                ref_uuid: 890ef583-e398-4ad7-8383-0995c075df19
+    - name: FIP 1
+      type: FunctionInputPort
+      primary_uuid: e0e7d69b-0d96-41e2-ad6a-5ff1925efd2c
+      description : 
+    - name: outConcussion Alert to Trainer
+      type: FunctionOutputPort
+      primary_uuid: 1979cf15-678d-462e-9bf8-4fd5c7966db5
+      description : 
+    - name: FOP 2
+      type: FunctionOutputPort
+      primary_uuid: 83158867-a232-40d9-ab3f-b31f5507bfd3
+      description : 
+    - name: Player ID
+      type: FunctionalExchange
+      primary_uuid: 844adaef-76be-4b7b-9fd1-ba948c8ad5c3
+      description : 
+      source function:
+          - name: Alert the Training
+            ref_uuid: db746a84-1293-4365-95f2-2671e677d6c3
+      target function:
+          - name: Intitate Data Retrieval
+            ref_uuid: 786e152b-fdc2-48a4-b45c-5ec9b09336a7
+      - name: Lorawan
+        type: LogicalComponent
+        primary_uuid: f51508f5-da2c-4359-9d05-f449a53981cc
+        description : 
+        is_human : False
+        components:
+        deployed components:
+        allocated functions:
+          - name: Relay message
+            ref_uuid : 282f0978-359b-4de6-80e5-055cc36f3794
+          - name: 
+            ref_uuid : 653a1edf-a06b-472f-ac1d-98a95137cf8b
+          - name: Relay Enabled Message
+            ref_uuid : 7c9fd22e-5a81-4e78-8534-77df5732b9e3
+        ports:
+          - name: CP 1
+            description :  
+            ref_uuid : dee18150-caa0-4d7d-b131-91f7fcd84e8e
+            exchanges:
+              - name: SD to Lorawant
+                ref_uuid:  f28751f1-1ef8-4aa9-a079-a35053f18e4d
+                description :  
+                source_component_name: Sensing Device
+                ref__uuid: 474b9c16-f46b-431c-bcec-d9139e4b85c1
+                target_component_name: Lorawan
+                ref_uuid: f51508f5-da2c-4359-9d05-f449a53981cc
+          - name: CP 2
+            description :  
+            ref_uuid : ba59c681-3143-4e27-8980-b9d48e8f636e
+            exchanges:
+              - name: Lora - SA
+                ref_uuid:  b8909acf-95c7-498a-acef-3cbfe7cb217d
+                description :  
+                source_component_name: Lorawan
+                ref__uuid: f51508f5-da2c-4359-9d05-f449a53981cc
+                target_component_name: Secure Application
+                ref_uuid: 8b37931a-2e73-4222-aced-2bbebc0601b4
+    - name: FIP 1
+      type: FunctionInputPort
+      primary_uuid: 56ea3727-c921-48e8-9104-78c1ef3dd0db
+      description : 
+    - name: FOP 1
+      type: FunctionOutputPort
+      primary_uuid: 445477c7-b2e7-4a53-bb96-c31845b2438e
+      description : 
+      - name: Secure Application
+        type: LogicalComponent
+        primary_uuid: 8b37931a-2e73-4222-aced-2bbebc0601b4
+        description : 
+        is_human : False
+        components:
+        deployed components:
+        allocated functions:
+          - name: Record the Concussion
+            ref_uuid : 3309513a-2b0c-4626-902e-cbcaafe8942b
+          - name: Data Stored
+            ref_uuid : b5a5ba79-6b54-4d11-96d4-f6b8b4b63a64
+          - name: Generate Reports
+            ref_uuid : 5d73a1be-ba65-4740-a4c6-937fb4607bdd
+          - name: Enable Recored
+            ref_uuid : 1e706858-1992-4073-a3ca-d3cf97cd7d22
+          - name: Store Profile
+            ref_uuid : 746d4d10-ef13-42c1-ba95-580d00d9083c
+          - name: Create ID
+            ref_uuid : bba5a05b-b325-483f-b282-e5b1c13efe19
+        ports:
+          - name: CP 1
+            description :  
+            ref_uuid : 3b2a3987-2f9e-45c3-b32e-269339bff2c7
+            exchanges:
+              - name: Lora - SA
+                ref_uuid:  b8909acf-95c7-498a-acef-3cbfe7cb217d
+                description :  
+                source_component_name: Lorawan
+                ref__uuid: f51508f5-da2c-4359-9d05-f449a53981cc
+                target_component_name: Secure Application
+                ref_uuid: 8b37931a-2e73-4222-aced-2bbebc0601b4
+          - name: CP 2
+            description :  
+            ref_uuid : 4587d58a-25cc-425f-8a2d-5c0ed0d3e7de
+            exchanges:
+              - name: SA-CDT App
+                ref_uuid:  71336acd-8612-426a-a43e-a50cca5d1561
+                description :  
+                source_component_name: Secure Application
+                ref__uuid: 8b37931a-2e73-4222-aced-2bbebc0601b4
+                target_component_name: CDT App
+                ref_uuid: 890ef583-e398-4ad7-8383-0995c075df19
+          - name: CP 3
+            description :  
+            ref_uuid : eb509672-800d-41e2-9fa7-10c57a17c730
+            exchanges:
+              - name: SA- Athlete
+                ref_uuid:  bc51e7d9-32bf-446d-b3ad-1c2d4b1639bb
+                description :  
+                source_component_name: Secure Application
+                ref__uuid: 8b37931a-2e73-4222-aced-2bbebc0601b4
+                target_component_name: Athlete
+                ref_uuid: 853fbf50-c129-4207-9c40-cec0301fb69e
+          - name: CP 4
+            description :  
+            ref_uuid : b0f1e2c2-83e5-4e57-ba1f-d4c6b16a2fc7
+            exchanges:
+              - name: SA-Inst
+                ref_uuid:  53b0ef6c-77ea-412f-81d9-37b883982b8a
+                description :  
+                source_component_name: Secure Application
+                ref__uuid: 8b37931a-2e73-4222-aced-2bbebc0601b4
+                target_component_name: Instituion
+                ref_uuid: 61823b91-b1a1-48c5-826c-547b63287cfd
+          - name: CP 5
+            description :  
+            ref_uuid : 71a229b5-24ac-4c76-9081-d86dee50868c
+            exchanges:
+              - name: SA-Parent
+                ref_uuid:  6357bdb2-8fed-403e-8b71-ad2254876136
+                description :  
+                source_component_name: Secure Application
+                ref__uuid: 8b37931a-2e73-4222-aced-2bbebc0601b4
+                target_component_name: Parent
+                ref_uuid: 333b7a5a-5c1f-40ee-896e-294672797d8c
+    - name: FIP 1
+      type: FunctionInputPort
+      primary_uuid: 9a842ba6-b3d5-435d-beb9-952ab43aa68d
+      description : 
+    - name: FOP 2
+      type: FunctionOutputPort
+      primary_uuid: 65384184-cb00-4d02-96a0-69f5ba96f33e
+      description : 
+    - name: FIP 1
+      type: FunctionInputPort
+      primary_uuid: 2b677385-4016-4ce2-9e19-9a3ffed3a093
+      description : 
+    - name: Request
+      type: FunctionalExchange
+      primary_uuid: b63a6c42-4adc-4f2d-bbb7-8a230c7a9862
+      description : 
+      source function:
+          - name: Request the Data 
+            ref_uuid: ae9a4a5b-d64e-4aad-86fb-ab5acd898b95
+      target function:
+          - name: Provide Hit Data
+            ref_uuid: af37a9c1-6cc8-4307-960a-ad78181629f0
+      involving functional chains:
+        - name: Download Data
+          ref_uuid : a22f020b-da82-45e5-9c15-da21e238d929
+    - name: inStored Data
+      type: FunctionInputPort
+      primary_uuid: 14490978-f6a2-4bbf-9453-59e313c92e7b
+      description : 
+    - name: Hit
+      type: ExchangeItem
+      primary_uuid: 51941f99-a6ac-40b9-ac6e-bd5f990bd706
+      description : 
+    - name: Alert
+      type: ExchangeItem
+      primary_uuid: 7b202e5c-e698-4768-a109-512589ece7b0
+      description : 
+    - name: Concussion Data
+      type: ExchangeItem
+      primary_uuid: 4c9a9ee6-e693-4538-a6f4-774e79a8efdb
+      description : 
+    - name: CP 1
+      type: ComponentPort
+      primary_uuid: 8390999c-710e-429d-a5e9-126a47be1a82
+      description : 
+      - name: Athlete to Helmut
+        type: ComponentExchange
+        primary_uuid: 2bf42ea5-c76a-4de2-8609-15fda7c207f0
+        description : 
+        source component:
+        - name: Athlete
+          ref_uuid: 
+        target component:
+        - name: Helmet Receives a Hit
+          ref_uuid: 
+          allocated functional exchanges:
+           - name: Activity
+           ref_uuid : 033e3152-51b3-45d7-a9a1-aae2f3decad1
+           - name: Head 
+           ref_uuid : 4e51009a-8ee1-4cd3-87bb-2a6ea590ffad
+    - name: CP 2
+      type: ComponentPort
+      primary_uuid: b0242693-b648-49fe-99f5-4637bc4c2bbe
+      description : 
+      - name: Helmut to Sensing Device
+        type: ComponentExchange
+        primary_uuid: 72474429-4604-476c-b55b-c5969cb59c2e
+        description : 
+        source component:
+        - name: Helmet Receives a Hit
+          ref_uuid: 
+        target component:
+        - name: Sensing Device
+          ref_uuid: 
+          allocated functional exchanges:
+           - name: Helmet Motion
+           ref_uuid : 56e3f648-295a-488f-b3d0-b6c6fd35f619
+           - name: Hit
+           ref_uuid : 68e7ee56-30a5-4c17-8bfb-5309173b9a78
+      - name: Provide access to sensing device mounting
+        type: LogicalFunction
+        primary_uuid: e7016106-2dfa-4635-8518-5fcab8a4d9bb
+        description : 
+        owner :
+          - name : Helmet Receives a Hit
+            ref_uuid : 3f9eaf95-f8f9-4742-a258-bec862312a7c
+        child functions:
+        inputs:
+        outputs:
+          - name: outsensor mounting
+            description :  
+            ref_uuid : 1bf29ffd-bd4c-4c01-807d-bea58a18e048
+            exchanges:
+              - name: sensor mounting
+                ref_uuid:  55e3ecb0-03f8-41d9-a02c-abb32c6cfe0c
+                description :  
+                source_function_name: Provide access to sensing device mounting
+                ref_uuid: e7016106-2dfa-4635-8518-5fcab8a4d9bb
+                target_function_name: Assemble System Components
+                ref_uuid: 641a1c4f-0d1c-424d-b50b-8e2b63a98068
+      - name: Receive Athlete 
+        type: LogicalFunction
+        primary_uuid: ae80551c-ebd1-41f5-aebe-f2128269167a
+        description : 
+        owner :
+          - name : Helmet Receives a Hit
+            ref_uuid : 3f9eaf95-f8f9-4742-a258-bec862312a7c
+        child functions:
+        inputs:
+          - name: inHead 
+            description :  
+            ref_uuid : b15ed05f-8dec-4549-a467-c25d63dc8aa6
+            exchanges:
+              - name: Head 
+                ref_uuid:  4e51009a-8ee1-4cd3-87bb-2a6ea590ffad
+                description :  
+                source_function_name: Place on Helmut
+                ref_uuid: 09b3a7bc-e652-4a6f-a4e1-e6bbfd1c1afc
+                target_function_name: Receive Athlete 
+                ref_uuid: ae80551c-ebd1-41f5-aebe-f2128269167a
+        outputs:
+          - name: outHelmut Motion
+            description :  
+            ref_uuid : ad94cda5-44d0-4d69-b074-b49bebc76fdc
+            exchanges:
+              - name: Helmet Motion
+                ref_uuid:  56e3f648-295a-488f-b3d0-b6c6fd35f619
+                description :  
+                source_function_name: Receive Athlete 
+                ref_uuid: ae80551c-ebd1-41f5-aebe-f2128269167a
+                target_function_name: Enable Monitoring
+                ref_uuid: d3f8e543-5954-4747-ad7d-589e3bcf5f0d
+    - name: CP 1
+      type: ComponentPort
+      primary_uuid: bac78d43-5083-4278-9cbe-739d624c1f48
+      description : 
+    - name: CP 2
+      type: ComponentPort
+      primary_uuid: e14cd9fa-7191-405c-a25f-756c9fa36774
+      description : 
+      - name: SA- Athlete
+        type: ComponentExchange
+        primary_uuid: bc51e7d9-32bf-446d-b3ad-1c2d4b1639bb
+        description : 
+        source component:
+        - name: Secure Application
+          ref_uuid: 
+        target component:
+        - name: Athlete
+          ref_uuid: 
+          allocated functional exchanges:
+           - name: Athlete Report
+           ref_uuid : 635ccece-c152-41cc-995f-6716650aa8fa
+      - name: Provide Data for Profile
+        type: LogicalFunction
+        primary_uuid: 5d4d80f8-bc2c-405a-b3d5-3de5bbb3761c
+        description : 
+        owner :
+          - name : Athlete
+            ref_uuid : 853fbf50-c129-4207-9c40-cec0301fb69e
+        child functions:
+        inputs:
+        outputs:
+          - name: outAthlete Data
+            description :  
+            ref_uuid : 1fe63918-1905-4674-953b-ee65e745cd7f
+            exchanges:
+              - name: Athlete Data
+                ref_uuid:  36a2318b-871f-4e1b-8559-d5343e010562
+                description :  
+                source_function_name: Provide Data for Profile
+                ref_uuid: 5d4d80f8-bc2c-405a-b3d5-3de5bbb3761c
+                target_function_name: Create profiles for Athletes
+                ref_uuid: da1fcd79-4f46-4225-ada1-73dc08e30ae6
+      - name: Recieve ID
+        type: LogicalFunction
+        primary_uuid: dc2dff7a-3526-4626-8e0d-73232c92a601
+        description : 
+        owner :
+          - name : Athlete
+            ref_uuid : 853fbf50-c129-4207-9c40-cec0301fb69e
+        child functions:
+        inputs:
+          - name: inID Card
+            description :  
+            ref_uuid : 31e1c23c-ecb5-410c-90b0-4580cc5a80e9
+            exchanges:
+              - name: ID Card
+                ref_uuid:  6f427cb0-5e63-42c7-9a23-b81b452b3e1d
+                description :  
+                source_function_name: Provide ID to Athlete
+                ref_uuid: 5305631e-a97b-441c-b863-33cd23f5ef7d
+                target_function_name: Recieve ID
+                ref_uuid: dc2dff7a-3526-4626-8e0d-73232c92a601
+        outputs:
+          - name: outID
+            description :  
+            ref_uuid : c6ce8e30-ca1c-4ef0-859e-3779d9ca6918
+            exchanges:
+              - name: ID
+                ref_uuid:  b8bd28fc-460e-46d1-a8a0-3cbe9832ab95
+                description :  
+                source_function_name: Recieve ID
+                ref_uuid: dc2dff7a-3526-4626-8e0d-73232c92a601
+                target_function_name: Insert ID into Sensing Device
+                ref_uuid: 3f35d1b6-897e-4579-9c8b-06da38624748
+      - name: Insert ID into Sensing Device
+        type: LogicalFunction
+        primary_uuid: 3f35d1b6-897e-4579-9c8b-06da38624748
+        description : 
+        owner :
+          - name : Athlete
+            ref_uuid : 853fbf50-c129-4207-9c40-cec0301fb69e
+        child functions:
+        inputs:
+          - name: inID
+            description :  
+            ref_uuid : 457df73a-3189-4ce4-93ed-edcd48dbe642
+            exchanges:
+              - name: ID
+                ref_uuid:  b8bd28fc-460e-46d1-a8a0-3cbe9832ab95
+                description :  
+                source_function_name: Recieve ID
+                ref_uuid: dc2dff7a-3526-4626-8e0d-73232c92a601
+                target_function_name: Insert ID into Sensing Device
+                ref_uuid: 3f35d1b6-897e-4579-9c8b-06da38624748
+        outputs:
+          - name: outReady to put on Helmut
+            description :  
+            ref_uuid : f2912981-afac-4fb6-aeae-21fd212d4682
+            exchanges:
+              - name: Ready to put on Helmet
+                ref_uuid:  ca27fda2-31e3-46f1-8961-666dd0d43912
+                description :  
+                source_function_name: Insert ID into Sensing Device
+                ref_uuid: 3f35d1b6-897e-4579-9c8b-06da38624748
+                target_function_name: Place on Helmut
+                ref_uuid: 09b3a7bc-e652-4a6f-a4e1-e6bbfd1c1afc
+          - name: outID
+            description :  
+            ref_uuid : 12e74acd-12a1-46f1-a513-c8f51081a88a
+            exchanges:
+              - name: ID
+                ref_uuid:  00d758e5-8a75-4f64-b22e-78cc1cadaeb8
+                description :  
+                source_function_name: Insert ID into Sensing Device
+                ref_uuid: 3f35d1b6-897e-4579-9c8b-06da38624748
+                target_function_name: Recieve ID
+                ref_uuid: 2c188c49-9cfb-402e-84ae-c013e70d190b
+      - name: Place on Helmut
+        type: LogicalFunction
+        primary_uuid: 09b3a7bc-e652-4a6f-a4e1-e6bbfd1c1afc
+        description : 
+        owner :
+          - name : Athlete
+            ref_uuid : 853fbf50-c129-4207-9c40-cec0301fb69e
+        child functions:
+        inputs:
+          - name: inReady to put on Helmut
+            description :  
+            ref_uuid : 22bd0c02-55c9-4e56-9860-4fe2d43bc40b
+            exchanges:
+              - name: Ready to put on Helmet
+                ref_uuid:  ca27fda2-31e3-46f1-8961-666dd0d43912
+                description :  
+                source_function_name: Insert ID into Sensing Device
+                ref_uuid: 3f35d1b6-897e-4579-9c8b-06da38624748
+                target_function_name: Place on Helmut
+                ref_uuid: 09b3a7bc-e652-4a6f-a4e1-e6bbfd1c1afc
+        outputs:
+          - name: outHead 
+            description :  
+            ref_uuid : 695f9255-9e87-4033-8b9e-b23643fdd493
+            exchanges:
+              - name: Head 
+                ref_uuid:  4e51009a-8ee1-4cd3-87bb-2a6ea590ffad
+                description :  
+                source_function_name: Place on Helmut
+                ref_uuid: 09b3a7bc-e652-4a6f-a4e1-e6bbfd1c1afc
+                target_function_name: Receive Athlete 
+                ref_uuid: ae80551c-ebd1-41f5-aebe-f2128269167a
+      - name: Yield to Evaluation
+        type: LogicalFunction
+        primary_uuid: 52936d98-6ca4-47b4-b522-bf7197550944
+        description : 
+        owner :
+          - name : Athlete
+            ref_uuid : 853fbf50-c129-4207-9c40-cec0301fb69e
+        child functions:
+        inputs:
+          - name: inAlert
+            description :  
+            ref_uuid : d808158f-6cf9-4b7e-8670-024af16a08d4
+            exchanges:
+              - name: Alert
+                ref_uuid:  614f2cf6-af23-4751-b457-0ab203481315
+                description :  
+                source_function_name: Trainer Recieves Concussion Alert
+                ref_uuid: 13f47d89-0e70-47bd-926c-453200cc54cc
+                target_function_name: Yield to Evaluation
+                ref_uuid: 52936d98-6ca4-47b4-b522-bf7197550944
+        outputs:
+          - name: outEvaluation
+            description :  
+            ref_uuid : 78fb4c26-627a-48aa-98fd-533f6537d992
+            exchanges:
+              - name: Evaluation
+                ref_uuid:  2e9251b0-4ed5-4638-ac5f-70e316e6fd80
+                description :  
+                source_function_name: Yield to Evaluation
+                ref_uuid: 52936d98-6ca4-47b4-b522-bf7197550944
+                target_function_name: Intitate Data Retrieval
+                ref_uuid: 786e152b-fdc2-48a4-b45c-5ec9b09336a7
+      - name: Report Received
+        type: LogicalFunction
+        primary_uuid: 8086a7fd-84ef-444b-87f3-b1054a29c72e
+        description : 
+        owner :
+          - name : Athlete
+            ref_uuid : 853fbf50-c129-4207-9c40-cec0301fb69e
+        child functions:
+        inputs:
+          - name: inAthlete Report
+            description :  
+            ref_uuid : 687249c0-09b0-41ff-a177-5a5e97061320
+            exchanges:
+              - name: Athlete Report
+                ref_uuid:  635ccece-c152-41cc-995f-6716650aa8fa
+                description :  
+                source_function_name: Generate Reports
+                ref_uuid: 5d73a1be-ba65-4740-a4c6-937fb4607bdd
+                target_function_name: Report Received
+                ref_uuid: 8086a7fd-84ef-444b-87f3-b1054a29c72e
+        outputs:
+    - name: CP 1
+      type: ComponentPort
+      primary_uuid: f79ca02b-b586-4006-91fc-ff906ffb1f88
+      description : 
+    - name: CP 2
+      type: ComponentPort
+      primary_uuid: 770cc355-2c64-47e9-8634-af6c7cd504a0
+      description : 
+      - name: SD to Lorawant
+        type: ComponentExchange
+        primary_uuid: f28751f1-1ef8-4aa9-a079-a35053f18e4d
+        description : 
+        source component:
+        - name: Sensing Device
+          ref_uuid: 
+        target component:
+        - name: Lorawan
+          ref_uuid: 
+          allocated functional exchanges:
+           - name: Concussion Message
+           ref_uuid : 2ad3591e-5a1b-458d-be75-1a6f8a8b6aed
+           - name: Enable Signal
+           ref_uuid : ed518be9-43ff-4d81-b589-3a8c39857811
+      - name: Provide access to helmut mounting
+        type: LogicalFunction
+        primary_uuid: 83ee6305-0dd2-4194-8447-570af8053999
+        description : 
+        owner :
+          - name : Sensing Device
+            ref_uuid : 474b9c16-f46b-431c-bcec-d9139e4b85c1
+        child functions:
+        inputs:
+        outputs:
+          - name: outhelmut mounting
+            description :  
+            ref_uuid : dd2daff0-3fdc-483c-8b8d-855d9d0e4d16
+            exchanges:
+              - name: helmet mounting
+                ref_uuid:  e9d82fae-346e-4c0b-9a92-dcc49d7a2bbb
+                description :  
+                source_function_name: Provide access to helmut mounting
+                ref_uuid: 83ee6305-0dd2-4194-8447-570af8053999
+                target_function_name: Assemble System Components
+                ref_uuid: 641a1c4f-0d1c-424d-b50b-8e2b63a98068
+      - name: Enable Secure Collection
+        type: LogicalFunction
+        primary_uuid: ad028dc1-6139-49bf-81bb-f9d11628b2e8
+        description : 
+        owner :
+          - name : Sensing Device
+            ref_uuid : 474b9c16-f46b-431c-bcec-d9139e4b85c1
+        child functions:
+        inputs:
+          - name: inAthlete ID
+            description :  
+            ref_uuid : fc1e20ca-378e-4fac-92a9-33ad847589cc
+            exchanges:
+              - name: Athlete ID
+                ref_uuid:  b4eab17b-ed8d-4af7-869d-998f966d1bc2
+                description :  
+                source_function_name: Recieve ID
+                ref_uuid: 2c188c49-9cfb-402e-84ae-c013e70d190b
+                target_function_name: Enable Secure Collection
+                ref_uuid: ad028dc1-6139-49bf-81bb-f9d11628b2e8
+          - name: inDevice ID 
+            description :  
+            ref_uuid : 517f49ea-bdb1-47a2-ba26-7ab308bfa2bb
+            exchanges:
+              - name: Device ID 
+                ref_uuid:  dbbb6ead-6656-4c2d-b504-bbe6fc344884
+                description :  
+                source_function_name: Provide ID Information
+                ref_uuid: 044b500b-66c4-40e5-91dd-ac1c71c2ed17
+                target_function_name: Enable Secure Collection
+                ref_uuid: ad028dc1-6139-49bf-81bb-f9d11628b2e8
+        outputs:
+          - name: outSensor Ready
+            description :  
+            ref_uuid : 2f33af3e-27f7-48a2-8d0b-a63d3234076b
+            exchanges:
+              - name: Sensor Ready
+                ref_uuid:  de8f7c10-fd24-4d5f-ad53-43652989cb4c
+                description :  
+                source_function_name: Enable Secure Collection
+                ref_uuid: ad028dc1-6139-49bf-81bb-f9d11628b2e8
+                target_function_name: Enable Monitoring
+                ref_uuid: d3f8e543-5954-4747-ad7d-589e3bcf5f0d
+      - name: Recieve ID
+        type: LogicalFunction
+        primary_uuid: 2c188c49-9cfb-402e-84ae-c013e70d190b
+        description : 
+        owner :
+          - name : Sensing Device
+            ref_uuid : 474b9c16-f46b-431c-bcec-d9139e4b85c1
+        child functions:
+        inputs:
+          - name: inID
+            description :  
+            ref_uuid : b66f0180-2a0e-46d4-b6ed-012565057850
+            exchanges:
+              - name: ID
+                ref_uuid:  00d758e5-8a75-4f64-b22e-78cc1cadaeb8
+                description :  
+                source_function_name: Insert ID into Sensing Device
+                ref_uuid: 3f35d1b6-897e-4579-9c8b-06da38624748
+                target_function_name: Recieve ID
+                ref_uuid: 2c188c49-9cfb-402e-84ae-c013e70d190b
+        outputs:
+          - name: outAthlete ID
+            description :  
+            ref_uuid : 3168e08e-c167-4c35-9049-4499d5bc631d
+            exchanges:
+              - name: Athlete ID
+                ref_uuid:  b4eab17b-ed8d-4af7-869d-998f966d1bc2
+                description :  
+                source_function_name: Recieve ID
+                ref_uuid: 2c188c49-9cfb-402e-84ae-c013e70d190b
+                target_function_name: Enable Secure Collection
+                ref_uuid: ad028dc1-6139-49bf-81bb-f9d11628b2e8
+      - name: Enable Monitoring
+        type: LogicalFunction
+        primary_uuid: d3f8e543-5954-4747-ad7d-589e3bcf5f0d
+        description : 
+        owner :
+          - name : Sensing Device
+            ref_uuid : 474b9c16-f46b-431c-bcec-d9139e4b85c1
+        child functions:
+        inputs:
+          - name: inSensor Ready
+            description :  
+            ref_uuid : 06d2d991-2094-4e3e-b2a0-6900666f6405
+            exchanges:
+              - name: Sensor Ready
+                ref_uuid:  de8f7c10-fd24-4d5f-ad53-43652989cb4c
+                description :  
+                source_function_name: Enable Secure Collection
+                ref_uuid: ad028dc1-6139-49bf-81bb-f9d11628b2e8
+                target_function_name: Enable Monitoring
+                ref_uuid: d3f8e543-5954-4747-ad7d-589e3bcf5f0d
+          - name: inHelmut Motion
+            description :  
+            ref_uuid : ffc63507-fb03-4229-8cf3-9565f3f2c6a1
+            exchanges:
+              - name: Helmet Motion
+                ref_uuid:  56e3f648-295a-488f-b3d0-b6c6fd35f619
+                description :  
+                source_function_name: Receive Athlete 
+                ref_uuid: ae80551c-ebd1-41f5-aebe-f2128269167a
+                target_function_name: Enable Monitoring
+                ref_uuid: d3f8e543-5954-4747-ad7d-589e3bcf5f0d
+        outputs:
+          - name: FOP 1
+            description :  
+            ref_uuid : a5edb474-d2a5-4e95-85a9-564f86677894
+            exchanges:
+              - name: Enable Signal
+                ref_uuid:  ed518be9-43ff-4d81-b589-3a8c39857811
+                description :  
+                source_function_name: Enable Monitoring
+                ref_uuid: d3f8e543-5954-4747-ad7d-589e3bcf5f0d
+                target_function_name: Relay Enabled Message
+                ref_uuid: 7c9fd22e-5a81-4e78-8534-77df5732b9e3
+          - name: FOP 2
+            description :  
+            ref_uuid : 47d87224-b890-4dbb-b56d-aa7850c47932
+            exchanges:
+              - name: Bluetooth ready
+                ref_uuid:  c0f41030-26d8-4248-b51e-cc0d0bd5ba25
+                description :  
+                source_function_name: Enable Monitoring
+                ref_uuid: d3f8e543-5954-4747-ad7d-589e3bcf5f0d
+                target_function_name: Look for bluetooth connect
+                ref_uuid: 8e52cb9c-c373-41db-b7bc-d7023c918da0
+      - name: Look for bluetooth connect
+        type: LogicalFunction
+        primary_uuid: 8e52cb9c-c373-41db-b7bc-d7023c918da0
+        description : 
+        owner :
+          - name : Sensing Device
+            ref_uuid : 474b9c16-f46b-431c-bcec-d9139e4b85c1
+        child functions:
+        inputs:
+          - name: FIP 1
+            description :  
+            ref_uuid : a31fe81b-9676-4a5c-b65e-bf9a4e5564ae
+            exchanges:
+              - name: Bluetooth ready
+                ref_uuid:  c0f41030-26d8-4248-b51e-cc0d0bd5ba25
+                description :  
+                source_function_name: Enable Monitoring
+                ref_uuid: d3f8e543-5954-4747-ad7d-589e3bcf5f0d
+                target_function_name: Look for bluetooth connect
+                ref_uuid: 8e52cb9c-c373-41db-b7bc-d7023c918da0
+          - name: FIP 2
+            description :  
+            ref_uuid : d9496b2a-fde1-473e-9275-1247f92f3a05
+            exchanges:
+              - name: Connect 
+                ref_uuid:  dab7038c-c1c1-441a-ac01-772653b7c3a4
+                description :  
+                source_function_name: Enable Bluetoth Connect
+                ref_uuid: 589e1973-7009-40f5-a567-f0f38de62736
+                target_function_name: Look for bluetooth connect
+                ref_uuid: 8e52cb9c-c373-41db-b7bc-d7023c918da0
+        outputs:
+      - name: StateMachine 1
+        type:StateMachine 
+        primary_uuid: deabdcf8-dd0c-40ea-8baa-f855d5e16535
+        description : 
+        regions:
+        - name: "Default Region"
+          states:
+            - name: "Initial"
+              ref_uuid : a41a5d1a-b6b0-45fb-ba8e-222ec5b8d98d
+            - name: "Off"
+              ref_uuid : b71e2817-106d-4c2d-934f-c6f8bac9e4a5
+            - name: "ON"
+              ref_uuid : fd3fdb21-af2a-4797-b1f6-92ac2b0e0f91
+          transitions:
+            - name: "Power Applied"
+              ref_uuid : 453ef859-7a00-49b4-a211-0599e129e061
+            - name: ""
+              ref_uuid : 8ebf289b-2d7e-49c8-8ea5-1418a9b8d08b
+    - name: CP 1
+      type: ComponentPort
+      primary_uuid: bb869cb6-07be-4586-a4b0-b40be077a79e
+      description : 
+      - name: CDT App - T
+        type: ComponentExchange
+        primary_uuid: 7d672e9f-af27-418b-aa8b-9d7e409b3b8b
+        description : 
+        source component:
+        - name: CDT App
+          ref_uuid: 
+        target component:
+        - name: Trainer
+          ref_uuid: 
+          allocated functional exchanges:
+           - name: Stored Data 
+           ref_uuid : 01f8b08a-4640-420b-8d83-dba3864e5805
+           - name: Enable Signal
+           ref_uuid : 1006a2a3-51b8-4014-b186-94587fe4de06
+           - name: ID
+           ref_uuid : de2a11d8-2409-417a-8eab-929d60e962a8
+           - name: Concussion Alert to Trainer
+           ref_uuid : aa8aeda1-33ce-4fc7-be1b-a304cb2015fe
+           - name: Athlete Profile
+           ref_uuid : 16ac8629-9665-4574-a074-9098e8fa193c
+           - name: Retrieve
+           ref_uuid : 141f7a3c-ac31-4dcb-97f0-030743f4cf14
+           - name: Execute Policy
+           ref_uuid : 4776ac92-de15-48ad-a25f-efac32182fe7
+      - name: Create profiles for Athletes
+        type: LogicalFunction
+        primary_uuid: da1fcd79-4f46-4225-ada1-73dc08e30ae6
+        description : 
+        owner :
+          - name : Trainer
+            ref_uuid : 9afe04e0-428f-4920-88fb-5cd937e949dd
+        child functions:
+        inputs:
+          - name: inSystem
+            description :  
+            ref_uuid : e1700a75-9337-4a9e-8f3d-6731cd74b1f6
+            exchanges:
+              - name: System
+                ref_uuid:  08b345f8-96d0-4939-879f-5725053e5a0d
+                description :  
+                source_function_name: Aquire System
+                ref_uuid: 2227a33e-23aa-4789-8b36-e424bbe7dd48
+                target_function_name: Create profiles for Athletes
+                ref_uuid: da1fcd79-4f46-4225-ada1-73dc08e30ae6
+          - name: inAthlete Data
+            description :  
+            ref_uuid : 320dcb91-2032-4f65-acb7-7d2f882ba397
+            exchanges:
+              - name: Athlete Data
+                ref_uuid:  36a2318b-871f-4e1b-8559-d5343e010562
+                description :  
+                source_function_name: Provide Data for Profile
+                ref_uuid: 5d4d80f8-bc2c-405a-b3d5-3de5bbb3761c
+                target_function_name: Create profiles for Athletes
+                ref_uuid: da1fcd79-4f46-4225-ada1-73dc08e30ae6
+        outputs:
+          - name: outProfile Data
+            description :  
+            ref_uuid : 34f42e81-3568-4158-8bce-a3fb9703ebdd
+            exchanges:
+              - name: Profile Data
+                ref_uuid:  34b74dfd-243a-40cc-a6a4-658f76ffe895
+                description :  
+                source_function_name: Create profiles for Athletes
+                ref_uuid: da1fcd79-4f46-4225-ada1-73dc08e30ae6
+                target_function_name: Create Unique IDs
+                ref_uuid: eb8a41ae-c853-41c7-a265-895682e72297
+          - name: outAthlete Profile
+            description :  
+            ref_uuid : 994cc69c-975a-4e90-84a0-e1eac7dbbc90
+            exchanges:
+              - name: Athlete Profile
+                ref_uuid:  16ac8629-9665-4574-a074-9098e8fa193c
+                description :  
+                source_function_name: Create profiles for Athletes
+                ref_uuid: da1fcd79-4f46-4225-ada1-73dc08e30ae6
+                target_function_name: Gather Profile Data
+                ref_uuid: b2c1d563-b6ed-479a-8c5a-a5ebb9d568d7
+      - name: Create Unique IDs
+        type: LogicalFunction
+        primary_uuid: eb8a41ae-c853-41c7-a265-895682e72297
+        description : 
+        owner :
+          - name : Trainer
+            ref_uuid : 9afe04e0-428f-4920-88fb-5cd937e949dd
+        child functions:
+        inputs:
+          - name: inProfile Data
+            description :  
+            ref_uuid : b4b92397-e2b1-4887-aca2-6904ebf2fbcf
+            exchanges:
+              - name: Profile Data
+                ref_uuid:  34b74dfd-243a-40cc-a6a4-658f76ffe895
+                description :  
+                source_function_name: Create profiles for Athletes
+                ref_uuid: da1fcd79-4f46-4225-ada1-73dc08e30ae6
+                target_function_name: Create Unique IDs
+                ref_uuid: eb8a41ae-c853-41c7-a265-895682e72297
+        outputs:
+          - name: outID
+            description :  
+            ref_uuid : 6146ed03-4ac0-44d3-906b-12eb3ac8c140
+            exchanges:
+              - name: ID
+                ref_uuid:  de2a11d8-2409-417a-8eab-929d60e962a8
+                description :  
+                source_function_name: Create Unique IDs
+                ref_uuid: eb8a41ae-c853-41c7-a265-895682e72297
+                target_function_name: Initiate ID Creation
+                ref_uuid: 7f05af6c-f457-44bc-b2f9-9619d208b2b8
+      - name: Provide ID to Athlete
+        type: LogicalFunction
+        primary_uuid: 5305631e-a97b-441c-b863-33cd23f5ef7d
+        description : 
+        owner :
+          - name : Trainer
+            ref_uuid : 9afe04e0-428f-4920-88fb-5cd937e949dd
+        child functions:
+        inputs:
+          - name: inID Device
+            description :  
+            ref_uuid : 80b8e314-018f-4214-b44f-5df28858bb47
+            exchanges:
+              - name: ID Device
+                ref_uuid:  aafcfdab-163f-41ca-8526-0c45de5d6af2
+                description :  
+                source_function_name: Create and Program ID
+                ref_uuid: 66c13ccc-5fad-412b-a62d-8228129fbf1d
+                target_function_name: Provide ID to Athlete
+                ref_uuid: 5305631e-a97b-441c-b863-33cd23f5ef7d
+        outputs:
+          - name: outID Card
+            description :  
+            ref_uuid : e4185e20-46d7-4796-b72a-2ddfc9fc1758
+            exchanges:
+              - name: ID Card
+                ref_uuid:  6f427cb0-5e63-42c7-9a23-b81b452b3e1d
+                description :  
+                source_function_name: Provide ID to Athlete
+                ref_uuid: 5305631e-a97b-441c-b863-33cd23f5ef7d
+                target_function_name: Recieve ID
+                ref_uuid: dc2dff7a-3526-4626-8e0d-73232c92a601
+      - name: Assemble System Components
+        type: LogicalFunction
+        primary_uuid: 641a1c4f-0d1c-424d-b50b-8e2b63a98068
+        description : 
+        owner :
+          - name : Trainer
+            ref_uuid : 9afe04e0-428f-4920-88fb-5cd937e949dd
+        child functions:
+        inputs:
+          - name: inSystem
+            description :  
+            ref_uuid : c417d263-f9a5-497a-b8ba-36c702623fac
+            exchanges:
+              - name: System
+                ref_uuid:  0bb64163-5187-4559-aa62-9bccb4369cfe
+                description :  
+                source_function_name: Aquire System
+                ref_uuid: 2227a33e-23aa-4789-8b36-e424bbe7dd48
+                target_function_name: Assemble System Components
+                ref_uuid: 641a1c4f-0d1c-424d-b50b-8e2b63a98068
+          - name: inhelmut mounting
+            description :  
+            ref_uuid : 00d24558-5a38-4498-be07-359c8657be5d
+            exchanges:
+              - name: helmet mounting
+                ref_uuid:  e9d82fae-346e-4c0b-9a92-dcc49d7a2bbb
+                description :  
+                source_function_name: Provide access to helmut mounting
+                ref_uuid: 83ee6305-0dd2-4194-8447-570af8053999
+                target_function_name: Assemble System Components
+                ref_uuid: 641a1c4f-0d1c-424d-b50b-8e2b63a98068
+          - name: insensor mounting
+            description :  
+            ref_uuid : b051b0b0-ea76-4684-a02b-06de305c8eec
+            exchanges:
+              - name: sensor mounting
+                ref_uuid:  55e3ecb0-03f8-41d9-a02c-abb32c6cfe0c
+                description :  
+                source_function_name: Provide access to sensing device mounting
+                ref_uuid: e7016106-2dfa-4635-8518-5fcab8a4d9bb
+                target_function_name: Assemble System Components
+                ref_uuid: 641a1c4f-0d1c-424d-b50b-8e2b63a98068
+        outputs:
+          - name: outAssembled System
+            description :  
+            ref_uuid : 104d4a8f-7bc2-459a-baed-3396b4167072
+            exchanges:
+              - name: Assembled System
+                ref_uuid:  813cc0b2-5aca-4246-a3d7-66055075ecd6
+                description :  
+                source_function_name: Assemble System Components
+                ref_uuid: 641a1c4f-0d1c-424d-b50b-8e2b63a98068
+                target_function_name: Prep the device for use
+                ref_uuid: 9adb235f-c2ad-4821-bb24-91eabfc5caef
+      - name: Prep the device for use
+        type: LogicalFunction
+        primary_uuid: 9adb235f-c2ad-4821-bb24-91eabfc5caef
+        description : 
+        owner :
+          - name : Trainer
+            ref_uuid : 9afe04e0-428f-4920-88fb-5cd937e949dd
+        child functions:
+        inputs:
+          - name: inAssembled System
+            description :  
+            ref_uuid : 6293b646-9d1b-4f4f-950b-e37b8720ce10
+            exchanges:
+              - name: Assembled System
+                ref_uuid:  813cc0b2-5aca-4246-a3d7-66055075ecd6
+                description :  
+                source_function_name: Assemble System Components
+                ref_uuid: 641a1c4f-0d1c-424d-b50b-8e2b63a98068
+                target_function_name: Prep the device for use
+                ref_uuid: 9adb235f-c2ad-4821-bb24-91eabfc5caef
+        outputs:
+      - name: Recieve Enabled Signal from Athelete Helmut
+        type: LogicalFunction
+        primary_uuid: 981ce419-557c-4c0b-93bd-d38291ae182e
+        description : 
+        owner :
+          - name : Trainer
+            ref_uuid : 9afe04e0-428f-4920-88fb-5cd937e949dd
+        child functions:
+        inputs:
+          - name: inEnable Signal
+            description :  
+            ref_uuid : 5216f9ff-2125-4afb-9bba-ab7c9cc43055
+            exchanges:
+              - name: Enable Signal
+                ref_uuid:  1006a2a3-51b8-4014-b186-94587fe4de06
+                description :  
+                source_function_name: Enable Indicated
+                ref_uuid: 1d8abe23-7ba6-43a8-8dfb-7c259faa7cf5
+                target_function_name: Recieve Enabled Signal from Athelete Helmut
+                ref_uuid: 981ce419-557c-4c0b-93bd-d38291ae182e
+        outputs:
+      - name: Data can be reviewed
+        type: LogicalFunction
+        primary_uuid: 72f06842-ef13-411f-b1ea-47742a8f8a34
+        description : 
+        owner :
+          - name : Trainer
+            ref_uuid : 9afe04e0-428f-4920-88fb-5cd937e949dd
+        child functions:
+        inputs:
+          - name: inStored Data 
+            description :  
+            ref_uuid : aeb3b4f4-12f8-46d2-95b7-eb7290250cb8
+            exchanges:
+              - name: Stored Data 
+                ref_uuid:  01f8b08a-4640-420b-8d83-dba3864e5805
+                description :  
+                source_function_name: Data is Presented
+                ref_uuid: f64c2e51-fe50-466c-ad85-7f94d6951630
+                target_function_name: Data can be reviewed
+                ref_uuid: 72f06842-ef13-411f-b1ea-47742a8f8a34
+        outputs:
+          - name: outInteraction 26
+            description :  
+            ref_uuid : 0896d439-30db-47de-9783-9a5c8e8b7805
+            exchanges:
+              - name: Interaction 26
+                ref_uuid:  2f84f25a-c0c3-4273-bddd-f328cfa6ebd4
+                description :  
+                source_function_name: Data can be reviewed
+                ref_uuid: 72f06842-ef13-411f-b1ea-47742a8f8a34
+                target_function_name: Executes Policies
+                ref_uuid: d8674072-5f19-4f11-8399-e069c4ac00bc
+      - name: Executes Policies
+        type: LogicalFunction
+        primary_uuid: d8674072-5f19-4f11-8399-e069c4ac00bc
+        description : 
+        owner :
+          - name : Trainer
+            ref_uuid : 9afe04e0-428f-4920-88fb-5cd937e949dd
+        child functions:
+        inputs:
+          - name: inInteraction 26
+            description :  
+            ref_uuid : 99b7b18c-2d38-4c32-8522-f2666cecaf11
+            exchanges:
+              - name: Interaction 26
+                ref_uuid:  2f84f25a-c0c3-4273-bddd-f328cfa6ebd4
+                description :  
+                source_function_name: Data can be reviewed
+                ref_uuid: 72f06842-ef13-411f-b1ea-47742a8f8a34
+                target_function_name: Executes Policies
+                ref_uuid: d8674072-5f19-4f11-8399-e069c4ac00bc
+        outputs:
+          - name: outExecute Policy
+            description :  
+            ref_uuid : 1333046c-168e-4131-bcb2-60cbff8d8d17
+            exchanges:
+              - name: Execute Policy
+                ref_uuid:  4776ac92-de15-48ad-a25f-efac32182fe7
+                description :  
+                source_function_name: Executes Policies
+                ref_uuid: d8674072-5f19-4f11-8399-e069c4ac00bc
+                target_function_name: Request Report to be sent
+                ref_uuid: 1e72e281-1385-42ad-a80a-9981bc989960
+    - name: CP 1
+      type: ComponentPort
+      primary_uuid: aa256b48-7c96-4c0b-8175-a200f45cb633
+      description : 
+      - name: SA-CDT App
+        type: ComponentExchange
+        primary_uuid: 71336acd-8612-426a-a43e-a50cca5d1561
+        description : 
+        source component:
+        - name: Secure Application
+          ref_uuid: 
+        target component:
+        - name: CDT App
+          ref_uuid: 
+          allocated functional exchanges:
+           - name: Concussion Alert
+           ref_uuid : d194214f-1ab1-443a-97ab-38dc1fe35d02
+           - name: Enable
+           ref_uuid : 6bc089b3-336d-4890-a903-ab77f625b6e0
+           - name: Data
+           ref_uuid : 062e99f3-77a8-4aff-8249-e8b8a460a254
+           - name: Profile Data
+           ref_uuid : 4614f066-5aa3-4b81-a308-99d5a57d3889
+           - name: ID Create
+           ref_uuid : 5c40769b-d826-496b-894d-6efeb8a0a5b5
+           - name: Recorded Data
+           ref_uuid : 71992433-b730-4c78-b2c6-634c4f622ff2
+           - name: Report Request
+           ref_uuid : a968678a-bdee-4cc3-8a24-1cd23df515a3
+    - name: CP 2
+      type: ComponentPort
+      primary_uuid: b1605036-b3ed-4fb3-8693-1ce2a29ae6b9
+      description : 
+    - name: CP 3
+      type: ComponentPort
+      primary_uuid: 8a545295-1b64-49cb-beca-fae34392d1e2
+      description : 
+      - name: BT - CDTApp
+        type: ComponentExchange
+        primary_uuid: 1a78bd51-6f84-42bf-99ce-36c157a7fb92
+        description : 
+        source component:
+        - name: Bluetooth
+          ref_uuid: 
+        target component:
+        - name: CDT App
+          ref_uuid: 
+          allocated functional exchanges:
+           - name: Data Request
+           ref_uuid : c667cdb0-6ba8-4c8d-b6aa-52cec107730e
+           - name: Confirm Bluetoth
+           ref_uuid : 2c13b94c-54bc-4937-b982-6e5870f616af
+      - name: Intitate Data Retrieval
+        type: LogicalFunction
+        primary_uuid: 786e152b-fdc2-48a4-b45c-5ec9b09336a7
+        description : 
+        owner :
+          - name : CDT App
+            ref_uuid : 890ef583-e398-4ad7-8383-0995c075df19
+        child functions:
+        inputs:
+          - name: FIP 1
+            description :  
+            ref_uuid : 048594ba-1d17-4299-8569-a45cf0e3d2bc
+            exchanges:
+              - name: Retrieve
+                ref_uuid:  141f7a3c-ac31-4dcb-97f0-030743f4cf14
+                description :  
+                source_function_name: Trainer Recieves Concussion Alert
+                ref_uuid: 13f47d89-0e70-47bd-926c-453200cc54cc
+                target_function_name: Intitate Data Retrieval
+                ref_uuid: 786e152b-fdc2-48a4-b45c-5ec9b09336a7
+          - name: FIP 2
+            description :  
+            ref_uuid : 5f212b12-6d09-48ae-9994-2a947cd75c36
+            exchanges:
+              - name: Player ID
+                ref_uuid:  844adaef-76be-4b7b-9fd1-ba948c8ad5c3
+                description :  
+                source_function_name: Alert the Training
+                ref_uuid: db746a84-1293-4365-95f2-2671e677d6c3
+                target_function_name: Intitate Data Retrieval
+                ref_uuid: 786e152b-fdc2-48a4-b45c-5ec9b09336a7
+          - name: inEvaluation
+            description :  
+            ref_uuid : 92562236-9718-4b87-b195-c7554ce1954c
+            exchanges:
+              - name: Evaluation
+                ref_uuid:  2e9251b0-4ed5-4638-ac5f-70e316e6fd80
+                description :  
+                source_function_name: Yield to Evaluation
+                ref_uuid: 52936d98-6ca4-47b4-b522-bf7197550944
+                target_function_name: Intitate Data Retrieval
+                ref_uuid: 786e152b-fdc2-48a4-b45c-5ec9b09336a7
+        outputs:
+          - name: FOP 1
+            description :  
+            ref_uuid : 41907c59-6083-4fa1-bf61-cd0a5fb75b76
+            exchanges:
+              - name: Data Request
+                ref_uuid:  c667cdb0-6ba8-4c8d-b6aa-52cec107730e
+                description :  
+                source_function_name: Intitate Data Retrieval
+                ref_uuid: 786e152b-fdc2-48a4-b45c-5ec9b09336a7
+                target_function_name: Request the Data 
+                ref_uuid: ae9a4a5b-d64e-4aad-86fb-ab5acd898b95
+          - name: outRecorded Data
+            description :  
+            ref_uuid : 46962ae1-cdea-45ef-8a96-7327dd42acd5
+            exchanges:
+              - name: Recorded Data
+                ref_uuid:  71992433-b730-4c78-b2c6-634c4f622ff2
+                description :  
+                source_function_name: Intitate Data Retrieval
+                ref_uuid: 786e152b-fdc2-48a4-b45c-5ec9b09336a7
+                target_function_name: Data Stored
+                ref_uuid: b5a5ba79-6b54-4d11-96d4-f6b8b4b63a64
+      - name: Data is Presented
+        type: LogicalFunction
+        primary_uuid: f64c2e51-fe50-466c-ad85-7f94d6951630
+        description : 
+        owner :
+          - name : CDT App
+            ref_uuid : 890ef583-e398-4ad7-8383-0995c075df19
+        child functions:
+        inputs:
+          - name: FIP 1
+            description :  
+            ref_uuid : a4084d77-18bc-4273-a504-248d70d375b3
+            exchanges:
+              - name: Data
+                ref_uuid:  062e99f3-77a8-4aff-8249-e8b8a460a254
+                description :  
+                source_function_name: Data Stored
+                ref_uuid: b5a5ba79-6b54-4d11-96d4-f6b8b4b63a64
+                target_function_name: Data is Presented
+                ref_uuid: f64c2e51-fe50-466c-ad85-7f94d6951630
+        outputs:
+          - name: outStored Data 
+            description :  
+            ref_uuid : 823036c2-01c4-4470-8447-1b2f33d22e99
+            exchanges:
+              - name: Stored Data 
+                ref_uuid:  01f8b08a-4640-420b-8d83-dba3864e5805
+                description :  
+                source_function_name: Data is Presented
+                ref_uuid: f64c2e51-fe50-466c-ad85-7f94d6951630
+                target_function_name: Data can be reviewed
+                ref_uuid: 72f06842-ef13-411f-b1ea-47742a8f8a34
+      - name: Request Report to be sent
+        type: LogicalFunction
+        primary_uuid: 1e72e281-1385-42ad-a80a-9981bc989960
+        description : 
+        owner :
+          - name : CDT App
+            ref_uuid : 890ef583-e398-4ad7-8383-0995c075df19
+        child functions:
+        inputs:
+          - name: inExecute Policy
+            description :  
+            ref_uuid : 07671eab-9461-4ece-8f58-570a7fa7f7f1
+            exchanges:
+              - name: Execute Policy
+                ref_uuid:  4776ac92-de15-48ad-a25f-efac32182fe7
+                description :  
+                source_function_name: Executes Policies
+                ref_uuid: d8674072-5f19-4f11-8399-e069c4ac00bc
+                target_function_name: Request Report to be sent
+                ref_uuid: 1e72e281-1385-42ad-a80a-9981bc989960
+        outputs:
+          - name: FOP 1
+            description :  
+            ref_uuid : 59015b7e-b9a4-4436-9d41-e3bc5adb22ea
+            exchanges:
+              - name: Report Request
+                ref_uuid:  a968678a-bdee-4cc3-8a24-1cd23df515a3
+                description :  
+                source_function_name: Request Report to be sent
+                ref_uuid: 1e72e281-1385-42ad-a80a-9981bc989960
+                target_function_name: Generate Reports
+                ref_uuid: 5d73a1be-ba65-4740-a4c6-937fb4607bdd
+      - name: Enable Indicated
+        type: LogicalFunction
+        primary_uuid: 1d8abe23-7ba6-43a8-8dfb-7c259faa7cf5
+        description : 
+        owner :
+          - name : CDT App
+            ref_uuid : 890ef583-e398-4ad7-8383-0995c075df19
+        child functions:
+        inputs:
+          - name: FIP 1
+            description :  
+            ref_uuid : b1b43f16-7818-468c-86a9-3307eb9b6b8b
+            exchanges:
+              - name: Enable
+                ref_uuid:  6bc089b3-336d-4890-a903-ab77f625b6e0
+                description :  
+                source_function_name: Enable Recored
+                ref_uuid: 1e706858-1992-4073-a3ca-d3cf97cd7d22
+                target_function_name: Enable Indicated
+                ref_uuid: 1d8abe23-7ba6-43a8-8dfb-7c259faa7cf5
+        outputs:
+          - name: outEnable Signal
+            description :  
+            ref_uuid : a4ee99c8-5c03-4354-ba71-99da7d3ef5ae
+            exchanges:
+              - name: Enable Signal
+                ref_uuid:  1006a2a3-51b8-4014-b186-94587fe4de06
+                description :  
+                source_function_name: Enable Indicated
+                ref_uuid: 1d8abe23-7ba6-43a8-8dfb-7c259faa7cf5
+                target_function_name: Recieve Enabled Signal from Athelete Helmut
+                ref_uuid: 981ce419-557c-4c0b-93bd-d38291ae182e
+          - name: FOP 2
+            description :  
+            ref_uuid : 27b21589-3014-4ea1-a426-386ebc9aca0e
+            exchanges:
+              - name: Confirm Bluetoth
+                ref_uuid:  2c13b94c-54bc-4937-b982-6e5870f616af
+                description :  
+                source_function_name: Enable Indicated
+                ref_uuid: 1d8abe23-7ba6-43a8-8dfb-7c259faa7cf5
+                target_function_name: Enable Bluetoth Connect
+                ref_uuid: 589e1973-7009-40f5-a567-f0f38de62736
+      - name: Gather Profile Data
+        type: LogicalFunction
+        primary_uuid: b2c1d563-b6ed-479a-8c5a-a5ebb9d568d7
+        description : 
+        owner :
+          - name : CDT App
+            ref_uuid : 890ef583-e398-4ad7-8383-0995c075df19
+        child functions:
+        inputs:
+          - name: inAthlete Profile
+            description :  
+            ref_uuid : 5b37dd0a-582e-4ac3-8785-43125ca4a2d5
+            exchanges:
+              - name: Athlete Profile
+                ref_uuid:  16ac8629-9665-4574-a074-9098e8fa193c
+                description :  
+                source_function_name: Create profiles for Athletes
+                ref_uuid: da1fcd79-4f46-4225-ada1-73dc08e30ae6
+                target_function_name: Gather Profile Data
+                ref_uuid: b2c1d563-b6ed-479a-8c5a-a5ebb9d568d7
+        outputs:
+          - name: FOP 1
+            description :  
+            ref_uuid : 2bf0968f-8b4f-40ec-afdd-bdd039c8a28d
+            exchanges:
+              - name: Profile Data
+                ref_uuid:  4614f066-5aa3-4b81-a308-99d5a57d3889
+                description :  
+                source_function_name: Gather Profile Data
+                ref_uuid: b2c1d563-b6ed-479a-8c5a-a5ebb9d568d7
+                target_function_name: Store Profile
+                ref_uuid: 746d4d10-ef13-42c1-ba95-580d00d9083c
+      - name: Initiate ID Creation
+        type: LogicalFunction
+        primary_uuid: 7f05af6c-f457-44bc-b2f9-9619d208b2b8
+        description : 
+        owner :
+          - name : CDT App
+            ref_uuid : 890ef583-e398-4ad7-8383-0995c075df19
+        child functions:
+        inputs:
+          - name: inID
+            description :  
+            ref_uuid : d4c39bf7-fe93-4f3e-aca8-a63e47ddabfd
+            exchanges:
+              - name: ID
+                ref_uuid:  de2a11d8-2409-417a-8eab-929d60e962a8
+                description :  
+                source_function_name: Create Unique IDs
+                ref_uuid: eb8a41ae-c853-41c7-a265-895682e72297
+                target_function_name: Initiate ID Creation
+                ref_uuid: 7f05af6c-f457-44bc-b2f9-9619d208b2b8
+        outputs:
+          - name: FOP 1
+            description :  
+            ref_uuid : 741a30be-fd89-4622-86e0-c89195088e04
+            exchanges:
+              - name: ID Create
+                ref_uuid:  5c40769b-d826-496b-894d-6efeb8a0a5b5
+                description :  
+                source_function_name: Initiate ID Creation
+                ref_uuid: 7f05af6c-f457-44bc-b2f9-9619d208b2b8
+                target_function_name: Create ID
+                ref_uuid: bba5a05b-b325-483f-b282-e5b1c13efe19
+    - name: CP 1
+      type: ComponentPort
+      primary_uuid: dee18150-caa0-4d7d-b131-91f7fcd84e8e
+      description : 
+    - name: CP 2
+      type: ComponentPort
+      primary_uuid: ba59c681-3143-4e27-8980-b9d48e8f636e
+      description : 
+      - name: Lora - SA
+        type: ComponentExchange
+        primary_uuid: b8909acf-95c7-498a-acef-3cbfe7cb217d
+        description : 
+        source component:
+        - name: Lorawan
+          ref_uuid: 
+        target component:
+        - name: Secure Application
+          ref_uuid: 
+          allocated functional exchanges:
+           - name: Concussion Message
+           ref_uuid : 45077ed7-3532-4a54-983a-4472bf80b75f
+           - name: Enable
+           ref_uuid : 346ba0de-117f-4838-bd24-1b822d200e79
+      - name: 
+        type: LogicalFunction
+        primary_uuid: 653a1edf-a06b-472f-ac1d-98a95137cf8b
+        description : 
+        owner :
+          - name : Lorawan
+            ref_uuid : f51508f5-da2c-4359-9d05-f449a53981cc
+        child functions:
+        inputs:
+        outputs:
+      - name: Relay Enabled Message
+        type: LogicalFunction
+        primary_uuid: 7c9fd22e-5a81-4e78-8534-77df5732b9e3
+        description : 
+        owner :
+          - name : Lorawan
+            ref_uuid : f51508f5-da2c-4359-9d05-f449a53981cc
+        child functions:
+        inputs:
+          - name: FIP 1
+            description :  
+            ref_uuid : 807bd36b-9904-45e1-8c4b-7636d1811d3c
+            exchanges:
+              - name: Enable Signal
+                ref_uuid:  ed518be9-43ff-4d81-b589-3a8c39857811
+                description :  
+                source_function_name: Enable Monitoring
+                ref_uuid: d3f8e543-5954-4747-ad7d-589e3bcf5f0d
+                target_function_name: Relay Enabled Message
+                ref_uuid: 7c9fd22e-5a81-4e78-8534-77df5732b9e3
+        outputs:
+          - name: FOP 1
+            description :  
+            ref_uuid : b038642e-eef4-43d0-a64e-f041586cd125
+            exchanges:
+              - name: Enable
+                ref_uuid:  346ba0de-117f-4838-bd24-1b822d200e79
+                description :  
+                source_function_name: Relay Enabled Message
+                ref_uuid: 7c9fd22e-5a81-4e78-8534-77df5732b9e3
+                target_function_name: Enable Recored
+                ref_uuid: 1e706858-1992-4073-a3ca-d3cf97cd7d22
+    - name: CP 1
+      type: ComponentPort
+      primary_uuid: 3b2a3987-2f9e-45c3-b32e-269339bff2c7
+      description : 
+    - name: CP 2
+      type: ComponentPort
+      primary_uuid: 4587d58a-25cc-425f-8a2d-5c0ed0d3e7de
+      description : 
+    - name: CP 3
+      type: ComponentPort
+      primary_uuid: eb509672-800d-41e2-9fa7-10c57a17c730
+      description : 
+    - name: CP 4
+      type: ComponentPort
+      primary_uuid: b0f1e2c2-83e5-4e57-ba1f-d4c6b16a2fc7
+      description : 
+      - name: SA-Inst
+        type: ComponentExchange
+        primary_uuid: 53b0ef6c-77ea-412f-81d9-37b883982b8a
+        description : 
+        source component:
+        - name: Secure Application
+          ref_uuid: 
+        target component:
+        - name: Instituion
+          ref_uuid: 
+          allocated functional exchanges:
+           - name: Instition Report
+           ref_uuid : 7c65fcce-2e69-4088-8879-09f2ae47a639
+    - name: CP 5
+      type: ComponentPort
+      primary_uuid: 71a229b5-24ac-4c76-9081-d86dee50868c
+      description : 
+      - name: SA-Parent
+        type: ComponentExchange
+        primary_uuid: 6357bdb2-8fed-403e-8b71-ad2254876136
+        description : 
+        source component:
+        - name: Secure Application
+          ref_uuid: 
+        target component:
+        - name: Parent
+          ref_uuid: 
+          allocated functional exchanges:
+           - name: Paren Report
+           ref_uuid : 38922abf-b0ac-4ded-8226-7b753f82ecd3
+      - name: Data Stored
+        type: LogicalFunction
+        primary_uuid: b5a5ba79-6b54-4d11-96d4-f6b8b4b63a64
+        description : 
+        owner :
+          - name : Secure Application
+            ref_uuid : 8b37931a-2e73-4222-aced-2bbebc0601b4
+        child functions:
+        inputs:
+          - name: inRecorded Data
+            description :  
+            ref_uuid : 03b018c0-bcdc-4b30-a3f8-450998a2a508
+            exchanges:
+              - name: Recorded Data
+                ref_uuid:  71992433-b730-4c78-b2c6-634c4f622ff2
+                description :  
+                source_function_name: Intitate Data Retrieval
+                ref_uuid: 786e152b-fdc2-48a4-b45c-5ec9b09336a7
+                target_function_name: Data Stored
+                ref_uuid: b5a5ba79-6b54-4d11-96d4-f6b8b4b63a64
+        outputs:
+          - name: FOP 1
+            description :  
+            ref_uuid : 809bf3da-aa57-4b7f-84cb-d6b48a12cdb0
+            exchanges:
+              - name: Data
+                ref_uuid:  062e99f3-77a8-4aff-8249-e8b8a460a254
+                description :  
+                source_function_name: Data Stored
+                ref_uuid: b5a5ba79-6b54-4d11-96d4-f6b8b4b63a64
+                target_function_name: Data is Presented
+                ref_uuid: f64c2e51-fe50-466c-ad85-7f94d6951630
+      - name: Generate Reports
+        type: LogicalFunction
+        primary_uuid: 5d73a1be-ba65-4740-a4c6-937fb4607bdd
+        description : 
+        owner :
+          - name : Secure Application
+            ref_uuid : 8b37931a-2e73-4222-aced-2bbebc0601b4
+        child functions:
+        inputs:
+          - name: FIP 1
+            description :  
+            ref_uuid : 3568be9d-9940-474c-a986-65c0e54c23a0
+            exchanges:
+              - name: Report Request
+                ref_uuid:  a968678a-bdee-4cc3-8a24-1cd23df515a3
+                description :  
+                source_function_name: Request Report to be sent
+                ref_uuid: 1e72e281-1385-42ad-a80a-9981bc989960
+                target_function_name: Generate Reports
+                ref_uuid: 5d73a1be-ba65-4740-a4c6-937fb4607bdd
+        outputs:
+          - name: outParen Report
+            description :  
+            ref_uuid : 061af6bd-187c-4aee-868b-b513225491d8
+            exchanges:
+              - name: Paren Report
+                ref_uuid:  38922abf-b0ac-4ded-8226-7b753f82ecd3
+                description :  
+                source_function_name: Generate Reports
+                ref_uuid: 5d73a1be-ba65-4740-a4c6-937fb4607bdd
+                target_function_name: Report received
+                ref_uuid: 1189a8b9-1cf9-43ac-92bc-e8a78d315c15
+          - name: outInstition Report
+            description :  
+            ref_uuid : 452129e6-caea-459f-a1e1-6fc5f815fa67
+            exchanges:
+              - name: Instition Report
+                ref_uuid:  7c65fcce-2e69-4088-8879-09f2ae47a639
+                description :  
+                source_function_name: Generate Reports
+                ref_uuid: 5d73a1be-ba65-4740-a4c6-937fb4607bdd
+                target_function_name: Report Received
+                ref_uuid: 0dad33ec-e2a8-4e66-8ba5-e2dc6fd05031
+          - name: outAthlete Report
+            description :  
+            ref_uuid : acccc779-1d24-4113-8c9e-c4802a79b163
+            exchanges:
+              - name: Athlete Report
+                ref_uuid:  635ccece-c152-41cc-995f-6716650aa8fa
+                description :  
+                source_function_name: Generate Reports
+                ref_uuid: 5d73a1be-ba65-4740-a4c6-937fb4607bdd
+                target_function_name: Report Received
+                ref_uuid: 8086a7fd-84ef-444b-87f3-b1054a29c72e
+      - name: Enable Recored
+        type: LogicalFunction
+        primary_uuid: 1e706858-1992-4073-a3ca-d3cf97cd7d22
+        description : 
+        owner :
+          - name : Secure Application
+            ref_uuid : 8b37931a-2e73-4222-aced-2bbebc0601b4
+        child functions:
+        inputs:
+          - name: FIP 1
+            description :  
+            ref_uuid : f138fb5d-6852-4c6f-b192-38756bd37f1f
+            exchanges:
+              - name: Enable
+                ref_uuid:  346ba0de-117f-4838-bd24-1b822d200e79
+                description :  
+                source_function_name: Relay Enabled Message
+                ref_uuid: 7c9fd22e-5a81-4e78-8534-77df5732b9e3
+                target_function_name: Enable Recored
+                ref_uuid: 1e706858-1992-4073-a3ca-d3cf97cd7d22
+        outputs:
+          - name: FOP 1
+            description :  
+            ref_uuid : 7ac7557b-b15d-4c35-9b90-ff7ddc249939
+            exchanges:
+              - name: Enable
+                ref_uuid:  6bc089b3-336d-4890-a903-ab77f625b6e0
+                description :  
+                source_function_name: Enable Recored
+                ref_uuid: 1e706858-1992-4073-a3ca-d3cf97cd7d22
+                target_function_name: Enable Indicated
+                ref_uuid: 1d8abe23-7ba6-43a8-8dfb-7c259faa7cf5
+      - name: Store Profile
+        type: LogicalFunction
+        primary_uuid: 746d4d10-ef13-42c1-ba95-580d00d9083c
+        description : 
+        owner :
+          - name : Secure Application
+            ref_uuid : 8b37931a-2e73-4222-aced-2bbebc0601b4
+        child functions:
+        inputs:
+          - name: FIP 1
+            description :  
+            ref_uuid : 92cdfdf9-9811-4244-9b88-46789a6288a6
+            exchanges:
+              - name: Profile Data
+                ref_uuid:  4614f066-5aa3-4b81-a308-99d5a57d3889
+                description :  
+                source_function_name: Gather Profile Data
+                ref_uuid: b2c1d563-b6ed-479a-8c5a-a5ebb9d568d7
+                target_function_name: Store Profile
+                ref_uuid: 746d4d10-ef13-42c1-ba95-580d00d9083c
+        outputs:
+          - name: FOP 1
+            description :  
+            ref_uuid : 7892e0fa-e710-4606-bda6-dd3846056ac8
+            exchanges:
+              - name: Profile Data
+                ref_uuid:  2da9d91f-1db5-4020-a709-32ac5622aa79
+                description :  
+                source_function_name: Store Profile
+                ref_uuid: 746d4d10-ef13-42c1-ba95-580d00d9083c
+                target_function_name: Create ID
+                ref_uuid: bba5a05b-b325-483f-b282-e5b1c13efe19
+      - name: Create ID
+        type: LogicalFunction
+        primary_uuid: bba5a05b-b325-483f-b282-e5b1c13efe19
+        description : 
+        owner :
+          - name : Secure Application
+            ref_uuid : 8b37931a-2e73-4222-aced-2bbebc0601b4
+        child functions:
+        inputs:
+          - name: FIP 1
+            description :  
+            ref_uuid : f4065401-7921-41fa-989e-4e754ffe17a6
+            exchanges:
+              - name: ID Create
+                ref_uuid:  5c40769b-d826-496b-894d-6efeb8a0a5b5
+                description :  
+                source_function_name: Initiate ID Creation
+                ref_uuid: 7f05af6c-f457-44bc-b2f9-9619d208b2b8
+                target_function_name: Create ID
+                ref_uuid: bba5a05b-b325-483f-b282-e5b1c13efe19
+          - name: FIP 2
+            description :  
+            ref_uuid : b43d69d4-9c97-4025-8d9f-46272e1837bf
+            exchanges:
+              - name: Profile Data
+                ref_uuid:  2da9d91f-1db5-4020-a709-32ac5622aa79
+                description :  
+                source_function_name: Store Profile
+                ref_uuid: 746d4d10-ef13-42c1-ba95-580d00d9083c
+                target_function_name: Create ID
+                ref_uuid: bba5a05b-b325-483f-b282-e5b1c13efe19
+        outputs:
+          - name: FOP 1
+            description :  
+            ref_uuid : 151499eb-2c63-4c17-9bdf-6c95792f59bf
+            exchanges:
+              - name: Program
+                ref_uuid:  1974be04-a3fa-41df-b9e5-06ce4a06cb99
+                description :  
+                source_function_name: Create ID
+                ref_uuid: bba5a05b-b325-483f-b282-e5b1c13efe19
+                target_function_name: Create and Program ID
+                ref_uuid: 66c13ccc-5fad-412b-a62d-8228129fbf1d
+    - name: Head 
+      type: FunctionalExchange
+      primary_uuid: 4e51009a-8ee1-4cd3-87bb-2a6ea590ffad
+      description : 
+      source function:
+          - name: Place on Helmut
+            ref_uuid: 09b3a7bc-e652-4a6f-a4e1-e6bbfd1c1afc
+      target function:
+          - name: Receive Athlete 
+            ref_uuid: ae80551c-ebd1-41f5-aebe-f2128269167a
+      involving functional chains:
+        - name: Activate Detection Device
+          ref_uuid : 69088f47-22c4-4884-83ed-fae75e8b7ba4
+    - name: Helmet Motion
+      type: FunctionalExchange
+      primary_uuid: 56e3f648-295a-488f-b3d0-b6c6fd35f619
+      description : 
+      source function:
+          - name: Receive Athlete 
+            ref_uuid: ae80551c-ebd1-41f5-aebe-f2128269167a
+      target function:
+          - name: Enable Monitoring
+            ref_uuid: d3f8e543-5954-4747-ad7d-589e3bcf5f0d
+      involving functional chains:
+        - name: Activate Detection Device
+          ref_uuid : 69088f47-22c4-4884-83ed-fae75e8b7ba4
+    - name: outsensor mounting
+      type: FunctionOutputPort
+      primary_uuid: 1bf29ffd-bd4c-4c01-807d-bea58a18e048
+      description : 
+    - name: sensor mounting
+      type: FunctionalExchange
+      primary_uuid: 55e3ecb0-03f8-41d9-a02c-abb32c6cfe0c
+      description : 
+      source function:
+          - name: Provide access to sensing device mounting
+            ref_uuid: e7016106-2dfa-4635-8518-5fcab8a4d9bb
+      target function:
+          - name: Assemble System Components
+            ref_uuid: 641a1c4f-0d1c-424d-b50b-8e2b63a98068
+      involving functional chains:
+        - name: Maintain
+          ref_uuid : 4fc108bc-d026-4c9d-9d3b-92467a5df6be
+    - name: inHead 
+      type: FunctionInputPort
+      primary_uuid: b15ed05f-8dec-4549-a467-c25d63dc8aa6
+      description : 
+    - name: outHelmut Motion
+      type: FunctionOutputPort
+      primary_uuid: ad94cda5-44d0-4d69-b074-b49bebc76fdc
+      description : 
+    - name: Report
+      type: ExchangeItem
+      primary_uuid: 7d2ee42d-d9fc-44ac-820c-1d2b7726bc2f
+      description : 
+    - name: Athlete Report
+      type: FunctionalExchange
+      primary_uuid: 635ccece-c152-41cc-995f-6716650aa8fa
+      description : 
+      source function:
+          - name: Generate Reports
+            ref_uuid: 5d73a1be-ba65-4740-a4c6-937fb4607bdd
+      target function:
+          - name: Report Received
+            ref_uuid: 8086a7fd-84ef-444b-87f3-b1054a29c72e
+      involving functional chains:
+        - name: Download Data
+          ref_uuid : a22f020b-da82-45e5-9c15-da21e238d929
+    - name: outAthlete Data
+      type: FunctionOutputPort
+      primary_uuid: 1fe63918-1905-4674-953b-ee65e745cd7f
+      description : 
+    - name: Athlete Data
+      type: FunctionalExchange
+      primary_uuid: 36a2318b-871f-4e1b-8559-d5343e010562
+      description : 
+      source function:
+          - name: Provide Data for Profile
+            ref_uuid: 5d4d80f8-bc2c-405a-b3d5-3de5bbb3761c
+      target function:
+          - name: Create profiles for Athletes
+            ref_uuid: da1fcd79-4f46-4225-ada1-73dc08e30ae6
+      involving functional chains:
+        - name: Acquire Device
+          ref_uuid : c25dfb5c-cd0f-4ffd-8b87-5a2b1e6fb956
+    - name: inID Card
+      type: FunctionInputPort
+      primary_uuid: 31e1c23c-ecb5-410c-90b0-4580cc5a80e9
+      description : 
+    - name: ID Card
+      type: FunctionalExchange
+      primary_uuid: 6f427cb0-5e63-42c7-9a23-b81b452b3e1d
+      description : 
+      source function:
+          - name: Provide ID to Athlete
+            ref_uuid: 5305631e-a97b-441c-b863-33cd23f5ef7d
+      target function:
+          - name: Recieve ID
+            ref_uuid: dc2dff7a-3526-4626-8e0d-73232c92a601
+      involving functional chains:
+        - name: Acquire Device
+          ref_uuid : c25dfb5c-cd0f-4ffd-8b87-5a2b1e6fb956
+    - name: outID
+      type: FunctionOutputPort
+      primary_uuid: c6ce8e30-ca1c-4ef0-859e-3779d9ca6918
+      description : 
+    - name: ID
+      type: FunctionalExchange
+      primary_uuid: b8bd28fc-460e-46d1-a8a0-3cbe9832ab95
+      description : 
+      source function:
+          - name: Recieve ID
+            ref_uuid: dc2dff7a-3526-4626-8e0d-73232c92a601
+      target function:
+          - name: Insert ID into Sensing Device
+            ref_uuid: 3f35d1b6-897e-4579-9c8b-06da38624748
+      involving functional chains:
+        - name: Activate Detection Device
+          ref_uuid : 69088f47-22c4-4884-83ed-fae75e8b7ba4
+    - name: inID
+      type: FunctionInputPort
+      primary_uuid: 457df73a-3189-4ce4-93ed-edcd48dbe642
+      description : 
+    - name: outReady to put on Helmut
+      type: FunctionOutputPort
+      primary_uuid: f2912981-afac-4fb6-aeae-21fd212d4682
+      description : 
+    - name: Ready to put on Helmet
+      type: FunctionalExchange
+      primary_uuid: ca27fda2-31e3-46f1-8961-666dd0d43912
+      description : 
+      source function:
+          - name: Insert ID into Sensing Device
+            ref_uuid: 3f35d1b6-897e-4579-9c8b-06da38624748
+      target function:
+          - name: Place on Helmut
+            ref_uuid: 09b3a7bc-e652-4a6f-a4e1-e6bbfd1c1afc
+      involving functional chains:
+        - name: Activate Detection Device
+          ref_uuid : 69088f47-22c4-4884-83ed-fae75e8b7ba4
+    - name: outID
+      type: FunctionOutputPort
+      primary_uuid: 12e74acd-12a1-46f1-a513-c8f51081a88a
+      description : 
+    - name: ID
+      type: FunctionalExchange
+      primary_uuid: 00d758e5-8a75-4f64-b22e-78cc1cadaeb8
+      description : 
+      source function:
+          - name: Insert ID into Sensing Device
+            ref_uuid: 3f35d1b6-897e-4579-9c8b-06da38624748
+      target function:
+          - name: Recieve ID
+            ref_uuid: 2c188c49-9cfb-402e-84ae-c013e70d190b
+      involving functional chains:
+        - name: Activate Detection Device
+          ref_uuid : 69088f47-22c4-4884-83ed-fae75e8b7ba4
+    - name: inReady to put on Helmut
+      type: FunctionInputPort
+      primary_uuid: 22bd0c02-55c9-4e56-9860-4fe2d43bc40b
+      description : 
+    - name: outHead 
+      type: FunctionOutputPort
+      primary_uuid: 695f9255-9e87-4033-8b9e-b23643fdd493
+      description : 
+    - name: inAlert
+      type: FunctionInputPort
+      primary_uuid: d808158f-6cf9-4b7e-8670-024af16a08d4
+      description : 
+    - name: outEvaluation
+      type: FunctionOutputPort
+      primary_uuid: 78fb4c26-627a-48aa-98fd-533f6537d992
+      description : 
+    - name: Evaluation
+      type: FunctionalExchange
+      primary_uuid: 2e9251b0-4ed5-4638-ac5f-70e316e6fd80
+      description : 
+      source function:
+          - name: Yield to Evaluation
+            ref_uuid: 52936d98-6ca4-47b4-b522-bf7197550944
+      target function:
+          - name: Intitate Data Retrieval
+            ref_uuid: 786e152b-fdc2-48a4-b45c-5ec9b09336a7
+      involving functional chains:
+        - name: Download Data
+          ref_uuid : a22f020b-da82-45e5-9c15-da21e238d929
+    - name: inAthlete Report
+      type: FunctionInputPort
+      primary_uuid: 687249c0-09b0-41ff-a177-5a5e97061320
+      description : 
+    - name: Enable Signal
+      type: FunctionalExchange
+      primary_uuid: ed518be9-43ff-4d81-b589-3a8c39857811
+      description : 
+      source function:
+          - name: Enable Monitoring
+            ref_uuid: d3f8e543-5954-4747-ad7d-589e3bcf5f0d
+      target function:
+          - name: Relay Enabled Message
+            ref_uuid: 7c9fd22e-5a81-4e78-8534-77df5732b9e3
+      involving functional chains:
+        - name: Activate Detection Device
+          ref_uuid : 69088f47-22c4-4884-83ed-fae75e8b7ba4
+    - name: outhelmut mounting
+      type: FunctionOutputPort
+      primary_uuid: dd2daff0-3fdc-483c-8b8d-855d9d0e4d16
+      description : 
+    - name: helmet mounting
+      type: FunctionalExchange
+      primary_uuid: e9d82fae-346e-4c0b-9a92-dcc49d7a2bbb
+      description : 
+      source function:
+          - name: Provide access to helmut mounting
+            ref_uuid: 83ee6305-0dd2-4194-8447-570af8053999
+      target function:
+          - name: Assemble System Components
+            ref_uuid: 641a1c4f-0d1c-424d-b50b-8e2b63a98068
+      involving functional chains:
+        - name: Maintain
+          ref_uuid : 4fc108bc-d026-4c9d-9d3b-92467a5df6be
+    - name: inAthlete ID
+      type: FunctionInputPort
+      primary_uuid: fc1e20ca-378e-4fac-92a9-33ad847589cc
+      description : 
+    - name: Athlete ID
+      type: FunctionalExchange
+      primary_uuid: b4eab17b-ed8d-4af7-869d-998f966d1bc2
+      description : 
+      source function:
+          - name: Recieve ID
+            ref_uuid: 2c188c49-9cfb-402e-84ae-c013e70d190b
+      target function:
+          - name: Enable Secure Collection
+            ref_uuid: ad028dc1-6139-49bf-81bb-f9d11628b2e8
+      involving functional chains:
+        - name: Activate Detection Device
+          ref_uuid : 69088f47-22c4-4884-83ed-fae75e8b7ba4
+    - name: inDevice ID 
+      type: FunctionInputPort
+      primary_uuid: 517f49ea-bdb1-47a2-ba26-7ab308bfa2bb
+      description : 
+    - name: Device ID 
+      type: FunctionalExchange
+      primary_uuid: dbbb6ead-6656-4c2d-b504-bbe6fc344884
+      description : 
+      source function:
+          - name: Provide ID Information
+            ref_uuid: 044b500b-66c4-40e5-91dd-ac1c71c2ed17
+      target function:
+          - name: Enable Secure Collection
+            ref_uuid: ad028dc1-6139-49bf-81bb-f9d11628b2e8
+      involving functional chains:
+        - name: Activate Detection Device
+          ref_uuid : 69088f47-22c4-4884-83ed-fae75e8b7ba4
+    - name: outSensor Ready
+      type: FunctionOutputPort
+      primary_uuid: 2f33af3e-27f7-48a2-8d0b-a63d3234076b
+      description : 
+    - name: Sensor Ready
+      type: FunctionalExchange
+      primary_uuid: de8f7c10-fd24-4d5f-ad53-43652989cb4c
+      description : 
+      source function:
+          - name: Enable Secure Collection
+            ref_uuid: ad028dc1-6139-49bf-81bb-f9d11628b2e8
+      target function:
+          - name: Enable Monitoring
+            ref_uuid: d3f8e543-5954-4747-ad7d-589e3bcf5f0d
+      involving functional chains:
+        - name: Activate Detection Device
+          ref_uuid : 69088f47-22c4-4884-83ed-fae75e8b7ba4
+    - name: inID
+      type: FunctionInputPort
+      primary_uuid: b66f0180-2a0e-46d4-b6ed-012565057850
+      description : 
+    - name: outAthlete ID
+      type: FunctionOutputPort
+      primary_uuid: 3168e08e-c167-4c35-9049-4499d5bc631d
+      description : 
+    - name: inSensor Ready
+      type: FunctionInputPort
+      primary_uuid: 06d2d991-2094-4e3e-b2a0-6900666f6405
+      description : 
+    - name: inHelmut Motion
+      type: FunctionInputPort
+      primary_uuid: ffc63507-fb03-4229-8cf3-9565f3f2c6a1
+      description : 
+    - name: FOP 1
+      type: FunctionOutputPort
+      primary_uuid: a5edb474-d2a5-4e95-85a9-564f86677894
+      description : 
+    - name: FOP 2
+      type: FunctionOutputPort
+      primary_uuid: 47d87224-b890-4dbb-b56d-aa7850c47932
+      description : 
+    - name: Bluetooth ready
+      type: FunctionalExchange
+      primary_uuid: c0f41030-26d8-4248-b51e-cc0d0bd5ba25
+      description : 
+      source function:
+          - name: Enable Monitoring
+            ref_uuid: d3f8e543-5954-4747-ad7d-589e3bcf5f0d
+      target function:
+          - name: Look for bluetooth connect
+            ref_uuid: 8e52cb9c-c373-41db-b7bc-d7023c918da0
+      involving functional chains:
+        - name: Activate Detection Device
+          ref_uuid : 69088f47-22c4-4884-83ed-fae75e8b7ba4
+    - name: FIP 1
+      type: FunctionInputPort
+      primary_uuid: a31fe81b-9676-4a5c-b65e-bf9a4e5564ae
+      description : 
+    - name: FIP 2
+      type: FunctionInputPort
+      primary_uuid: d9496b2a-fde1-473e-9275-1247f92f3a05
+      description : 
+    - name: Connect 
+      type: FunctionalExchange
+      primary_uuid: dab7038c-c1c1-441a-ac01-772653b7c3a4
+      description : 
+      source function:
+          - name: Enable Bluetoth Connect
+            ref_uuid: 589e1973-7009-40f5-a567-f0f38de62736
+      target function:
+          - name: Look for bluetooth connect
+            ref_uuid: 8e52cb9c-c373-41db-b7bc-d7023c918da0
+      involving functional chains:
+        - name: Activate Detection Device
+          ref_uuid : 69088f47-22c4-4884-83ed-fae75e8b7ba4
+    - name: Initial
+      type: InitialPseudoState
+      primary_uuid: a41a5d1a-b6b0-45fb-ba8e-222ec5b8d98d
+      description : 
+      outgoing transtions:
+        - name: 
+          ref_uuid : 8ebf289b-2d7e-49c8-8ea5-1418a9b8d08b
+    - name: Off
+      type: Mode
+      primary_uuid: b71e2817-106d-4c2d-934f-c6f8bac9e4a5
+      description : 
+    - name: ON
+      type: Mode
+      primary_uuid: fd3fdb21-af2a-4797-b1f6-92ac2b0e0f91
+      description : 
+    - name: Power Applied
+      type: StateTransition
+      primary_uuid: 453ef859-7a00-49b4-a211-0599e129e061
+      description : 
+      guard: 
+      triggers:
+        - name: Power Applied
+          ref_uuid : 087fff32-156b-4981-8ca2-9a9f6b4b9914
+        source state:
+        - name: Off
+          ref_uuid : b71e2817-106d-4c2d-934f-c6f8bac9e4a5
+        destination state:
+          - name: ON
+            ref_uuid : fd3fdb21-af2a-4797-b1f6-92ac2b0e0f91
+        after functions:
+    - name: 
+      type: StateTransition
+      primary_uuid: 8ebf289b-2d7e-49c8-8ea5-1418a9b8d08b
+      description : 
+      guard: 
+      triggers:
+        source state:
+        - name: Initial
+          ref_uuid : a41a5d1a-b6b0-45fb-ba8e-222ec5b8d98d
+        destination state:
+          - name: Off
+            ref_uuid : b71e2817-106d-4c2d-934f-c6f8bac9e4a5
+        after functions:
+    - name: Policy
+      type: ExchangeItem
+      primary_uuid: a50bd9d8-e347-40f1-8f28-2a77acc7d62f
+      description : 
+    - name: Stored Data 
+      type: FunctionalExchange
+      primary_uuid: 01f8b08a-4640-420b-8d83-dba3864e5805
+      description : 
+      source function:
+          - name: Data is Presented
+            ref_uuid: f64c2e51-fe50-466c-ad85-7f94d6951630
+      target function:
+          - name: Data can be reviewed
+            ref_uuid: 72f06842-ef13-411f-b1ea-47742a8f8a34
+      involving functional chains:
+        - name: Download Data
+          ref_uuid : a22f020b-da82-45e5-9c15-da21e238d929
+    - name: Enable Signal
+      type: FunctionalExchange
+      primary_uuid: 1006a2a3-51b8-4014-b186-94587fe4de06
+      description : 
+      source function:
+          - name: Enable Indicated
+            ref_uuid: 1d8abe23-7ba6-43a8-8dfb-7c259faa7cf5
+      target function:
+          - name: Recieve Enabled Signal from Athelete Helmut
+            ref_uuid: 981ce419-557c-4c0b-93bd-d38291ae182e
+      involving functional chains:
+        - name: Activate Detection Device
+          ref_uuid : 69088f47-22c4-4884-83ed-fae75e8b7ba4
+    - name: ID
+      type: FunctionalExchange
+      primary_uuid: de2a11d8-2409-417a-8eab-929d60e962a8
+      description : 
+      source function:
+          - name: Create Unique IDs
+            ref_uuid: eb8a41ae-c853-41c7-a265-895682e72297
+      target function:
+          - name: Initiate ID Creation
+            ref_uuid: 7f05af6c-f457-44bc-b2f9-9619d208b2b8
+      involving functional chains:
+        - name: Acquire Device
+          ref_uuid : c25dfb5c-cd0f-4ffd-8b87-5a2b1e6fb956
+    - name: Athlete Profile
+      type: FunctionalExchange
+      primary_uuid: 16ac8629-9665-4574-a074-9098e8fa193c
+      description : 
+      source function:
+          - name: Create profiles for Athletes
+            ref_uuid: da1fcd79-4f46-4225-ada1-73dc08e30ae6
+      target function:
+          - name: Gather Profile Data
+            ref_uuid: b2c1d563-b6ed-479a-8c5a-a5ebb9d568d7
+      involving functional chains:
+        - name: Acquire Device
+          ref_uuid : c25dfb5c-cd0f-4ffd-8b87-5a2b1e6fb956
+    - name: Execute Policy
+      type: FunctionalExchange
+      primary_uuid: 4776ac92-de15-48ad-a25f-efac32182fe7
+      description : 
+      source function:
+          - name: Executes Policies
+            ref_uuid: d8674072-5f19-4f11-8399-e069c4ac00bc
+      target function:
+          - name: Request Report to be sent
+            ref_uuid: 1e72e281-1385-42ad-a80a-9981bc989960
+      involving functional chains:
+        - name: Download Data
+          ref_uuid : a22f020b-da82-45e5-9c15-da21e238d929
+    - name: inSystem
+      type: FunctionInputPort
+      primary_uuid: e1700a75-9337-4a9e-8f3d-6731cd74b1f6
+      description : 
+    - name: System
+      type: FunctionalExchange
+      primary_uuid: 08b345f8-96d0-4939-879f-5725053e5a0d
+      description : 
+      source function:
+          - name: Aquire System
+            ref_uuid: 2227a33e-23aa-4789-8b36-e424bbe7dd48
+      target function:
+          - name: Create profiles for Athletes
+            ref_uuid: da1fcd79-4f46-4225-ada1-73dc08e30ae6
+      involving functional chains:
+        - name: Acquire Device
+          ref_uuid : c25dfb5c-cd0f-4ffd-8b87-5a2b1e6fb956
+    - name: inAthlete Data
+      type: FunctionInputPort
+      primary_uuid: 320dcb91-2032-4f65-acb7-7d2f882ba397
+      description : 
+    - name: outProfile Data
+      type: FunctionOutputPort
+      primary_uuid: 34f42e81-3568-4158-8bce-a3fb9703ebdd
+      description : 
+    - name: Profile Data
+      type: FunctionalExchange
+      primary_uuid: 34b74dfd-243a-40cc-a6a4-658f76ffe895
+      description : 
+      source function:
+          - name: Create profiles for Athletes
+            ref_uuid: da1fcd79-4f46-4225-ada1-73dc08e30ae6
+      target function:
+          - name: Create Unique IDs
+            ref_uuid: eb8a41ae-c853-41c7-a265-895682e72297
+      involving functional chains:
+        - name: Acquire Device
+          ref_uuid : c25dfb5c-cd0f-4ffd-8b87-5a2b1e6fb956
+    - name: outAthlete Profile
+      type: FunctionOutputPort
+      primary_uuid: 994cc69c-975a-4e90-84a0-e1eac7dbbc90
+      description : 
+    - name: inProfile Data
+      type: FunctionInputPort
+      primary_uuid: b4b92397-e2b1-4887-aca2-6904ebf2fbcf
+      description : 
+    - name: outID
+      type: FunctionOutputPort
+      primary_uuid: 6146ed03-4ac0-44d3-906b-12eb3ac8c140
+      description : 
+    - name: inID Device
+      type: FunctionInputPort
+      primary_uuid: 80b8e314-018f-4214-b44f-5df28858bb47
+      description : 
+    - name: ID Device
+      type: FunctionalExchange
+      primary_uuid: aafcfdab-163f-41ca-8526-0c45de5d6af2
+      description : 
+      source function:
+          - name: Create and Program ID
+            ref_uuid: 66c13ccc-5fad-412b-a62d-8228129fbf1d
+      target function:
+          - name: Provide ID to Athlete
+            ref_uuid: 5305631e-a97b-441c-b863-33cd23f5ef7d
+      involving functional chains:
+        - name: Acquire Device
+          ref_uuid : c25dfb5c-cd0f-4ffd-8b87-5a2b1e6fb956
+    - name: outID Card
+      type: FunctionOutputPort
+      primary_uuid: e4185e20-46d7-4796-b72a-2ddfc9fc1758
+      description : 
+    - name: inSystem
+      type: FunctionInputPort
+      primary_uuid: c417d263-f9a5-497a-b8ba-36c702623fac
+      description : 
+    - name: System
+      type: FunctionalExchange
+      primary_uuid: 0bb64163-5187-4559-aa62-9bccb4369cfe
+      description : 
+      source function:
+          - name: Aquire System
+            ref_uuid: 2227a33e-23aa-4789-8b36-e424bbe7dd48
+      target function:
+          - name: Assemble System Components
+            ref_uuid: 641a1c4f-0d1c-424d-b50b-8e2b63a98068
+      involving functional chains:
+        - name: Maintain
+          ref_uuid : 4fc108bc-d026-4c9d-9d3b-92467a5df6be
+    - name: inhelmut mounting
+      type: FunctionInputPort
+      primary_uuid: 00d24558-5a38-4498-be07-359c8657be5d
+      description : 
+    - name: insensor mounting
+      type: FunctionInputPort
+      primary_uuid: b051b0b0-ea76-4684-a02b-06de305c8eec
+      description : 
+    - name: outAssembled System
+      type: FunctionOutputPort
+      primary_uuid: 104d4a8f-7bc2-459a-baed-3396b4167072
+      description : 
+    - name: Assembled System
+      type: FunctionalExchange
+      primary_uuid: 813cc0b2-5aca-4246-a3d7-66055075ecd6
+      description : 
+      source function:
+          - name: Assemble System Components
+            ref_uuid: 641a1c4f-0d1c-424d-b50b-8e2b63a98068
+      target function:
+          - name: Prep the device for use
+            ref_uuid: 9adb235f-c2ad-4821-bb24-91eabfc5caef
+      involving functional chains:
+        - name: Maintain
+          ref_uuid : 4fc108bc-d026-4c9d-9d3b-92467a5df6be
+    - name: inAssembled System
+      type: FunctionInputPort
+      primary_uuid: 6293b646-9d1b-4f4f-950b-e37b8720ce10
+      description : 
+    - name: inEnable Signal
+      type: FunctionInputPort
+      primary_uuid: 5216f9ff-2125-4afb-9bba-ab7c9cc43055
+      description : 
+    - name: inStored Data 
+      type: FunctionInputPort
+      primary_uuid: aeb3b4f4-12f8-46d2-95b7-eb7290250cb8
+      description : 
+    - name: outInteraction 26
+      type: FunctionOutputPort
+      primary_uuid: 0896d439-30db-47de-9783-9a5c8e8b7805
+      description : 
+    - name: Interaction 26
+      type: FunctionalExchange
+      primary_uuid: 2f84f25a-c0c3-4273-bddd-f328cfa6ebd4
+      description : 
+      source function:
+          - name: Data can be reviewed
+            ref_uuid: 72f06842-ef13-411f-b1ea-47742a8f8a34
+      target function:
+          - name: Executes Policies
+            ref_uuid: d8674072-5f19-4f11-8399-e069c4ac00bc
+      involving functional chains:
+        - name: Download Data
+          ref_uuid : a22f020b-da82-45e5-9c15-da21e238d929
+    - name: inInteraction 26
+      type: FunctionInputPort
+      primary_uuid: 99b7b18c-2d38-4c32-8522-f2666cecaf11
+      description : 
+    - name: outExecute Policy
+      type: FunctionOutputPort
+      primary_uuid: 1333046c-168e-4131-bcb2-60cbff8d8d17
+      description : 
+    - name: Enable
+      type: FunctionalExchange
+      primary_uuid: 6bc089b3-336d-4890-a903-ab77f625b6e0
+      description : 
+      source function:
+          - name: Enable Recored
+            ref_uuid: 1e706858-1992-4073-a3ca-d3cf97cd7d22
+      target function:
+          - name: Enable Indicated
+            ref_uuid: 1d8abe23-7ba6-43a8-8dfb-7c259faa7cf5
+      involving functional chains:
+        - name: Activate Detection Device
+          ref_uuid : 69088f47-22c4-4884-83ed-fae75e8b7ba4
+    - name: Data
+      type: FunctionalExchange
+      primary_uuid: 062e99f3-77a8-4aff-8249-e8b8a460a254
+      description : 
+      source function:
+          - name: Data Stored
+            ref_uuid: b5a5ba79-6b54-4d11-96d4-f6b8b4b63a64
+      target function:
+          - name: Data is Presented
+            ref_uuid: f64c2e51-fe50-466c-ad85-7f94d6951630
+      involving functional chains:
+        - name: Download Data
+          ref_uuid : a22f020b-da82-45e5-9c15-da21e238d929
+    - name: Profile Data
+      type: FunctionalExchange
+      primary_uuid: 4614f066-5aa3-4b81-a308-99d5a57d3889
+      description : 
+      source function:
+          - name: Gather Profile Data
+            ref_uuid: b2c1d563-b6ed-479a-8c5a-a5ebb9d568d7
+      target function:
+          - name: Store Profile
+            ref_uuid: 746d4d10-ef13-42c1-ba95-580d00d9083c
+      involving functional chains:
+        - name: Acquire Device
+          ref_uuid : c25dfb5c-cd0f-4ffd-8b87-5a2b1e6fb956
+    - name: ID Create
+      type: FunctionalExchange
+      primary_uuid: 5c40769b-d826-496b-894d-6efeb8a0a5b5
+      description : 
+      source function:
+          - name: Initiate ID Creation
+            ref_uuid: 7f05af6c-f457-44bc-b2f9-9619d208b2b8
+      target function:
+          - name: Create ID
+            ref_uuid: bba5a05b-b325-483f-b282-e5b1c13efe19
+      involving functional chains:
+        - name: Acquire Device
+          ref_uuid : c25dfb5c-cd0f-4ffd-8b87-5a2b1e6fb956
+    - name: Recorded Data
+      type: FunctionalExchange
+      primary_uuid: 71992433-b730-4c78-b2c6-634c4f622ff2
+      description : 
+      source function:
+          - name: Intitate Data Retrieval
+            ref_uuid: 786e152b-fdc2-48a4-b45c-5ec9b09336a7
+      target function:
+          - name: Data Stored
+            ref_uuid: b5a5ba79-6b54-4d11-96d4-f6b8b4b63a64
+      involving functional chains:
+        - name: Download Data
+          ref_uuid : a22f020b-da82-45e5-9c15-da21e238d929
+    - name: Report Request
+      type: FunctionalExchange
+      primary_uuid: a968678a-bdee-4cc3-8a24-1cd23df515a3
+      description : 
+      source function:
+          - name: Request Report to be sent
+            ref_uuid: 1e72e281-1385-42ad-a80a-9981bc989960
+      target function:
+          - name: Generate Reports
+            ref_uuid: 5d73a1be-ba65-4740-a4c6-937fb4607bdd
+      involving functional chains:
+        - name: Download Data
+          ref_uuid : a22f020b-da82-45e5-9c15-da21e238d929
+    - name: Data Request
+      type: FunctionalExchange
+      primary_uuid: c667cdb0-6ba8-4c8d-b6aa-52cec107730e
+      description : 
+      source function:
+          - name: Intitate Data Retrieval
+            ref_uuid: 786e152b-fdc2-48a4-b45c-5ec9b09336a7
+      target function:
+          - name: Request the Data 
+            ref_uuid: ae9a4a5b-d64e-4aad-86fb-ab5acd898b95
+      involving functional chains:
+        - name: Download Data
+          ref_uuid : a22f020b-da82-45e5-9c15-da21e238d929
+    - name: Confirm Bluetoth
+      type: FunctionalExchange
+      primary_uuid: 2c13b94c-54bc-4937-b982-6e5870f616af
+      description : 
+      source function:
+          - name: Enable Indicated
+            ref_uuid: 1d8abe23-7ba6-43a8-8dfb-7c259faa7cf5
+      target function:
+          - name: Enable Bluetoth Connect
+            ref_uuid: 589e1973-7009-40f5-a567-f0f38de62736
+      involving functional chains:
+        - name: Activate Detection Device
+          ref_uuid : 69088f47-22c4-4884-83ed-fae75e8b7ba4
+    - name: FIP 1
+      type: FunctionInputPort
+      primary_uuid: 048594ba-1d17-4299-8569-a45cf0e3d2bc
+      description : 
+    - name: FIP 2
+      type: FunctionInputPort
+      primary_uuid: 5f212b12-6d09-48ae-9994-2a947cd75c36
+      description : 
+    - name: inEvaluation
+      type: FunctionInputPort
+      primary_uuid: 92562236-9718-4b87-b195-c7554ce1954c
+      description : 
+    - name: FOP 1
+      type: FunctionOutputPort
+      primary_uuid: 41907c59-6083-4fa1-bf61-cd0a5fb75b76
+      description : 
+    - name: outRecorded Data
+      type: FunctionOutputPort
+      primary_uuid: 46962ae1-cdea-45ef-8a96-7327dd42acd5
+      description : 
+    - name: FIP 1
+      type: FunctionInputPort
+      primary_uuid: a4084d77-18bc-4273-a504-248d70d375b3
+      description : 
+    - name: outStored Data 
+      type: FunctionOutputPort
+      primary_uuid: 823036c2-01c4-4470-8447-1b2f33d22e99
+      description : 
+    - name: inExecute Policy
+      type: FunctionInputPort
+      primary_uuid: 07671eab-9461-4ece-8f58-570a7fa7f7f1
+      description : 
+    - name: FOP 1
+      type: FunctionOutputPort
+      primary_uuid: 59015b7e-b9a4-4436-9d41-e3bc5adb22ea
+      description : 
+    - name: FIP 1
+      type: FunctionInputPort
+      primary_uuid: b1b43f16-7818-468c-86a9-3307eb9b6b8b
+      description : 
+    - name: outEnable Signal
+      type: FunctionOutputPort
+      primary_uuid: a4ee99c8-5c03-4354-ba71-99da7d3ef5ae
+      description : 
+    - name: FOP 2
+      type: FunctionOutputPort
+      primary_uuid: 27b21589-3014-4ea1-a426-386ebc9aca0e
+      description : 
+    - name: inAthlete Profile
+      type: FunctionInputPort
+      primary_uuid: 5b37dd0a-582e-4ac3-8785-43125ca4a2d5
+      description : 
+    - name: FOP 1
+      type: FunctionOutputPort
+      primary_uuid: 2bf0968f-8b4f-40ec-afdd-bdd039c8a28d
+      description : 
+    - name: inID
+      type: FunctionInputPort
+      primary_uuid: d4c39bf7-fe93-4f3e-aca8-a63e47ddabfd
+      description : 
+    - name: FOP 1
+      type: FunctionOutputPort
+      primary_uuid: 741a30be-fd89-4622-86e0-c89195088e04
+      description : 
+    - name: Enable
+      type: FunctionalExchange
+      primary_uuid: 346ba0de-117f-4838-bd24-1b822d200e79
+      description : 
+      source function:
+          - name: Relay Enabled Message
+            ref_uuid: 7c9fd22e-5a81-4e78-8534-77df5732b9e3
+      target function:
+          - name: Enable Recored
+            ref_uuid: 1e706858-1992-4073-a3ca-d3cf97cd7d22
+      involving functional chains:
+        - name: Activate Detection Device
+          ref_uuid : 69088f47-22c4-4884-83ed-fae75e8b7ba4
+    - name: FIP 1
+      type: FunctionInputPort
+      primary_uuid: 807bd36b-9904-45e1-8c4b-7636d1811d3c
+      description : 
+    - name: FOP 1
+      type: FunctionOutputPort
+      primary_uuid: b038642e-eef4-43d0-a64e-f041586cd125
+      description : 
+    - name: Instition Report
+      type: FunctionalExchange
+      primary_uuid: 7c65fcce-2e69-4088-8879-09f2ae47a639
+      description : 
+      source function:
+          - name: Generate Reports
+            ref_uuid: 5d73a1be-ba65-4740-a4c6-937fb4607bdd
+      target function:
+          - name: Report Received
+            ref_uuid: 0dad33ec-e2a8-4e66-8ba5-e2dc6fd05031
+      involving functional chains:
+        - name: Download Data
+          ref_uuid : a22f020b-da82-45e5-9c15-da21e238d929
+    - name: Paren Report
+      type: FunctionalExchange
+      primary_uuid: 38922abf-b0ac-4ded-8226-7b753f82ecd3
+      description : 
+      source function:
+          - name: Generate Reports
+            ref_uuid: 5d73a1be-ba65-4740-a4c6-937fb4607bdd
+      target function:
+          - name: Report received
+            ref_uuid: 1189a8b9-1cf9-43ac-92bc-e8a78d315c15
+      involving functional chains:
+        - name: Download Data
+          ref_uuid : a22f020b-da82-45e5-9c15-da21e238d929
+    - name: inRecorded Data
+      type: FunctionInputPort
+      primary_uuid: 03b018c0-bcdc-4b30-a3f8-450998a2a508
+      description : 
+    - name: FOP 1
+      type: FunctionOutputPort
+      primary_uuid: 809bf3da-aa57-4b7f-84cb-d6b48a12cdb0
+      description : 
+    - name: FIP 1
+      type: FunctionInputPort
+      primary_uuid: 3568be9d-9940-474c-a986-65c0e54c23a0
+      description : 
+    - name: outParen Report
+      type: FunctionOutputPort
+      primary_uuid: 061af6bd-187c-4aee-868b-b513225491d8
+      description : 
+    - name: outInstition Report
+      type: FunctionOutputPort
+      primary_uuid: 452129e6-caea-459f-a1e1-6fc5f815fa67
+      description : 
+    - name: outAthlete Report
+      type: FunctionOutputPort
+      primary_uuid: acccc779-1d24-4113-8c9e-c4802a79b163
+      description : 
+    - name: FIP 1
+      type: FunctionInputPort
+      primary_uuid: f138fb5d-6852-4c6f-b192-38756bd37f1f
+      description : 
+    - name: FOP 1
+      type: FunctionOutputPort
+      primary_uuid: 7ac7557b-b15d-4c35-9b90-ff7ddc249939
+      description : 
+    - name: FIP 1
+      type: FunctionInputPort
+      primary_uuid: 92cdfdf9-9811-4244-9b88-46789a6288a6
+      description : 
+    - name: FOP 1
+      type: FunctionOutputPort
+      primary_uuid: 7892e0fa-e710-4606-bda6-dd3846056ac8
+      description : 
+    - name: Profile Data
+      type: FunctionalExchange
+      primary_uuid: 2da9d91f-1db5-4020-a709-32ac5622aa79
+      description : 
+      source function:
+          - name: Store Profile
+            ref_uuid: 746d4d10-ef13-42c1-ba95-580d00d9083c
+      target function:
+          - name: Create ID
+            ref_uuid: bba5a05b-b325-483f-b282-e5b1c13efe19
+      involving functional chains:
+        - name: Acquire Device
+          ref_uuid : c25dfb5c-cd0f-4ffd-8b87-5a2b1e6fb956
+    - name: FIP 1
+      type: FunctionInputPort
+      primary_uuid: f4065401-7921-41fa-989e-4e754ffe17a6
+      description : 
+    - name: FIP 2
+      type: FunctionInputPort
+      primary_uuid: b43d69d4-9c97-4025-8d9f-46272e1837bf
+      description : 
+    - name: FOP 1
+      type: FunctionOutputPort
+      primary_uuid: 151499eb-2c63-4c17-9bdf-6c95792f59bf
+      description : 
+    - name: Program
+      type: FunctionalExchange
+      primary_uuid: 1974be04-a3fa-41df-b9e5-06ce4a06cb99
+      description : 
+      source function:
+          - name: Create ID
+            ref_uuid: bba5a05b-b325-483f-b282-e5b1c13efe19
+      target function:
+          - name: Create and Program ID
+            ref_uuid: 66c13ccc-5fad-412b-a62d-8228129fbf1d
+      involving functional chains:
+        - name: Acquire Device
+          ref_uuid : c25dfb5c-cd0f-4ffd-8b87-5a2b1e6fb956
+    - name: Power Applied
+      type: ModelElement
+      primary_uuid: 087fff32-156b-4981-8ca2-9a9f6b4b9914
+      description : 

@@ -1,0 +1,36 @@
+responsible entity,requirement heading,requirement body
+Athlete,Provide Data for Profile,The Athlete shall Provide Data for Profile and Athlete Data.
+Athlete,Recieve ID,The Athlete shall Recieve ID and ID.
+Athlete,Insert ID into Sensing Device,The Athlete shall Insert ID into Sensing Device and ID.
+Athlete,Place on Helmut,The Athlete shall Place on Helmut and Ready to put on Helmut.
+Athlete,Athlete Particpates in Activity,The Athlete shall Athlete Particpates in Activity and Activity.
+Athlete,Yield to Evaluation,The Athlete shall Yield to Evaluation and Alert.
+Athlete,Report Received,The Athlete shall Report Received and Athlete Report.
+Helmet,Provide access to sensing device mounting,The Helmet shall Provide access to sensing device mounting and sensor mounting.
+Helmet,Receive Athlete,The Helmet shall Receive Athlete and Head.
+Helmet,Helmet Receives a Hit,The Helmet shall Helmet Receives a Hit and Activity.
+ID Device,Create Unique IDs for Athlete,The ID Device shall Create Unique IDs for Athlete and ID.
+ID Device,Provide ID Information,The ID Device shall Provide ID Information and Device ID.
+ID Device,Device,The ID Device shall Device and .
+Instituion,Aquire System,The Instituion shall Aquire System and System.
+Instituion,Report Received,The Instituion shall Report Received and Instition Report.
+Instituion,Established Concussion Policy,The Instituion shall Established Concussion Policy and System.
+Secure Cloud,Store Profile,The Secure Cloud shall Store Profile and Athlete Profile.
+Secure Cloud,Data stored,The Secure Cloud shall Data stored and Recorded Data.
+Secure Cloud,Generates Reports,The Secure Cloud shall Generates Reports and Execute Policy.
+Sensing Device,Provide access to helmet mounting,The Sensing Device shall Provide access to helmet mounting and helmet mounting.
+Sensing Device,Recieve ID,The Sensing Device shall Recieve ID and ID.
+Sensing Device,Enable Secure Collection,The Sensing Device shall Enable Secure Collection and Athlete ID.
+Sensing Device,Enable Monitoring,The Sensing Device shall Enable Monitoring and Sensor Ready.
+Sensing Device,Data is Retrieved,The Sensing Device shall Data is Retrieved and Evaluation.
+Sensing Device,Device records Hit,The Sensing Device shall Device records Hit and Hit.
+Sensing Device,Device alerts possible Concussion,The Sensing Device shall Device alerts possible Concussion and Concussion.
+Trainer,Create profiles for Athletes,The Trainer shall Create profiles for Athletes and System.
+Trainer,Create Unique IDs,The Trainer shall Create Unique IDs and Profile Data.
+Trainer,Provide ID to Athlete,The Trainer shall Provide ID to Athlete and ID Device.
+Trainer,Assemble System Components,The Trainer shall Assemble System Components and System.
+Trainer,Prep the device for use,The Trainer shall Prep the device for use and Assembled System.
+Trainer,Recieve Enabled Signal from Athelete Helmut,The Trainer shall Recieve Enabled Signal from Athelete Helmut and Enable Signal.
+Trainer,Trainer Recieves Concussion Alert,The Trainer shall Trainer Recieves Concussion Alert and Concussion Policy.
+Trainer,Data can be reviewed,The Trainer shall Data can be reviewed and Stored Data.
+Trainer,Executes Policies,The Trainer shall Executes Policies and Interaction 26.
